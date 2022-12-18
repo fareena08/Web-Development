@@ -16,7 +16,7 @@ include_once 'service_form_crud.php';
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-   <title>HSS: HOMEPAGE</title>
+   <title>HSS: SERVICES</title>
 
    <!-- swiper css link  -->
    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
@@ -104,9 +104,9 @@ include_once 'service_form_crud.php';
         <td><?php echo $readrow['fld_service_name']; ?></td>
         
         <td>
-         <a href="service.php?edit=<?php echo $readrow['fld_service_id']; ?>" class="btn btn-outline-primary" role="button"> Edit </a>
+         <a href="service_form.php?edit=<?php echo $readrow['fld_service_id']; ?>" class="btn btn-outline-primary" role="button"> Edit </a>
           
-          <a href="service.php?delete=<?php echo $readrow['fld_service_id']; ?>" name="delete" onclick="return confirm('Are you sure to delete?');" class="btn btn-outline-danger" role="button">Delete</a>
+          <a href="service_form.php?delete=<?php echo $readrow['fld_service_id']; ?>" name="delete" onclick="return confirm('Are you sure to delete?');" class="btn btn-outline-danger" role="button">Delete</a>
 
         </td>
       </tr>
