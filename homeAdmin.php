@@ -32,7 +32,7 @@ session_start()
       <nav class="navbar">
          <a href="homeAdmin.php">home</a>
         <!--  <a href="about.php">about</a> -->
-         <a href="service/service_form.php">services</a>
+         <a href="service_form.php">services</a>
          <a href="#">Validate Account</a>
          <a style="color:black"><?php echo "Hi, {$_SESSION['username']}!" ?></a>
          <a href="logout.php" class='fas fa-sign-out-alt'></a>
@@ -126,7 +126,9 @@ session_start()
    <div class="content">
       <h3>about us</h3>
       <p>We are an online platform that offers customers a wide range of home services that suits your need, from a bunch of companies and freelancers out there. </p>
-      <a href="about.php" class="btn">read more</a>
+      <!-- <button id="openBtn" type="button" data-target="#myModal" data-href="about.php" class="btn" >read more</button> -->
+      <!-- <button id= openBtn type="button" data-target="#myModal" data-href  href="about.php" class="btn">read more</a> -->
+      <a href="readmore.php" class='btn'>read more</a>
    </div>
 
 </section>
@@ -140,7 +142,7 @@ session_start()
 
    <div class="box-container">
 
-      <div class="box">
+      <!-- <div class="box">
          <h3>quick links</h3>
          <a href="home.php"> <i class="fas fa-angle-right"></i> home</a>
          <a href="about.php"> <i class="fas fa-angle-right"></i> about</a>
@@ -154,9 +156,9 @@ session_start()
          <a href="#"> <i class="fas fa-angle-right"></i> privacy policy</a>
          <a href="#"> <i class="fas fa-angle-right">
          </i> terms of use</a>
-      </div>
+      </div> -->
 
-      <div class="box">
+      <div class="box" style="text-align: center;">
          <h3>contact info</h3>
          <a href="#"> <i class="fas fa-phone"></i> 03-56212121 </a>
          <a href="#"> <i class="fas fa-phone"></i> 019-1112221 </a>
