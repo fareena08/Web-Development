@@ -1,8 +1,3 @@
-<?php 
-
-include_once 'loggedin.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,10 +26,10 @@ include_once 'loggedin.php';
       <a href="index.php" class="logo">HSS</a>
 
       <nav class="navbar">
-         <a href="index.php">home</a>
+         <!-- <a href="index.php">home</a>
          <a href="about.php">about</a>
-         <!-- <a href="services.php">services</a> -->
-         <a href="loginUser.php">book</a>
+         <a href="services.php">services</a> 
+         <a href="loginUser.php">book</a> -->
       </nav>
 
   <div id="menu-btn" class="fas fa-bars"></div>
@@ -42,7 +37,7 @@ include_once 'loggedin.php';
 
 <!-- header section ends -->
 
-<div class="heading" style="background:url(images/home1.jpg) no-repeat">
+<div class="heading" style="background:url(images/home2.jpg) no-repeat">
    <h1>about us</h1>
 </div>
 
