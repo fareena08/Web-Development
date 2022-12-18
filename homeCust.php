@@ -34,9 +34,9 @@ session_start()
             <a href="#">Profile</a>
             <!-- <a href="about.php">about</a> -->
            <!--  <a href="#service">services</a> -->
-            <a href="book.php">book</a>
+            <a href="#">book</a>
             <a style="color:black"><?php echo "Hi, {$_SESSION['username']}!" ?></a>
-            <a href="logout.php">Logout</a>
+            <a href="logout.php" class='fas fa-sign-out-alt'></a>
          </nav>
 
      <div id="menu-btn" class="fas fa-bars"></div>
@@ -63,23 +63,23 @@ session_start()
             <div class="content">
                <span>easy, fast, clean</span>
                <h3>fulfill all your request</h3>
-               <a href="login.php" class="btn">BOOK NOW</a>
+               <a href="#" class="btn">BOOK NOW</a>
             </div>
          </div>
 
-         <div class="swiper-slide slide" style="background:url(images/home1.jpg) no-repeat">
+         <div class="swiper-slide slide" style="background:url(images/home2.jpg) no-repeat">
             <div class="content">
                <span>easy, fast, clean</span>
                <h3>fulfill all your request</h3>
-               <a href="login.php" class="btn">BOOK NOW</a>
+               <a href="#" class="btn">BOOK NOW</a>
             </div>
          </div>
 
-         <div class="swiper-slide slide" style="background:url(images/home1.jpg) no-repeat">
+         <div class="swiper-slide slide" style="background:url(images/laundry.jpg) no-repeat">
             <div class="content">
                <span>easy, fast, clean</span>
                <h3>fulfill all your request</h3>
-               <a href="login.php" class="btn">BOOK NOW</a>
+               <a href="#" class="btn">BOOK NOW</a>
             </div>
          </div>
 
@@ -139,7 +139,7 @@ session_start()
    <div class="content">
       <h3>about us</h3>
       <p>We are an online platform that offers customers a wide range of home services that suits your need, from a bunch of companies and freelancers out there. </p>
-      <a href="about.php" class="btn">read more</a>
+      <a href="readmore.php" class="btn">read more</a>
    </div>
 
 </section>
@@ -153,7 +153,7 @@ session_start()
 
    <div class="box-container">
 
-      <div class="box">
+      <!-- <div class="box">
          <h3>quick links</h3>
          <a href="home.php"> <i class="fas fa-angle-right"></i> home</a>
          <a href="about.php"> <i class="fas fa-angle-right"></i> about</a>
@@ -167,9 +167,9 @@ session_start()
          <a href="#"> <i class="fas fa-angle-right"></i> privacy policy</a>
          <a href="#"> <i class="fas fa-angle-right">
          </i> terms of use</a>
-      </div>
+      </div> -->
 
-      <div class="box">
+      <div class="box" style="text-align: center;">
          <h3>contact info</h3>
          <a href="#"> <i class="fas fa-phone"></i> 03-56212121 </a>
          <a href="#"> <i class="fas fa-phone"></i> 019-1112221 </a>
