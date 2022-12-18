@@ -1,5 +1,7 @@
 <?php 
+
 session_start()
+
 
 ?>
 <!DOCTYPE html>
@@ -65,7 +67,7 @@ session_start()
             </div>
          </div>
 
-         <div class="swiper-slide slide" style="background:url(images/lawnmowing.jpg) no-repeat">
+         <div class="swiper-slide slide" style="background:url(images/laundry.jpg) no-repeat">
             <div class="content">
                <span>easy, fast, clean</span>
                <h3>fulfill all your request</h3>
@@ -128,7 +130,7 @@ session_start()
    <div class="content">
       <h3>about us</h3>
       <p>We are an online platform that offers customers a wide range of home services that suits your need, from a bunch of companies and freelancers out there. </p>
-      <a href="about.php" class="btn">read more</a>
+      <a href="readmore.php" class="btn">read more</a>
    </div>
 
 </section>
@@ -142,7 +144,7 @@ session_start()
 
    <div class="box-container">
 
-      <div class="box">
+      <!-- <div class="box" >
          <h3>quick links</h3>
          <a href="home.php"> <i class="fas fa-angle-right"></i> home</a>
          <a href="about.php"> <i class="fas fa-angle-right"></i> about</a>
@@ -156,9 +158,9 @@ session_start()
          <a href="#"> <i class="fas fa-angle-right"></i> privacy policy</a>
          <a href="#"> <i class="fas fa-angle-right">
          </i> terms of use</a>
-      </div>
+      </div> -->
 
-      <div class="box">
+      <div class="box" style="text-align: center;">
          <h3>contact info</h3>
          <a href="#"> <i class="fas fa-phone"></i> 03-56212121 </a>
          <a href="#"> <i class="fas fa-phone"></i> 019-1112221 </a>
