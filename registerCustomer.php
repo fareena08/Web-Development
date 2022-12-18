@@ -90,7 +90,7 @@ if (!isset($_SESSION)) {
 						      <button class="btn btn-block btn-primary" type="submit" name="create" onclick="return message();"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Register</button>
 							</form>
 
-						<p class="small my-4 text-center">Already have an account? <a href="#a">Log in</a>.</p>
+						<p class="small my-4 text-center">Already have an account? <a href="loginUser.php">Log in</a>.</p>
 		  		</div>
 	  </div>
 	  <div class="col-12 col-md-6 offset-md-1 d-flex">
