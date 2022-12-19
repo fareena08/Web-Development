@@ -101,9 +101,9 @@ if (!isset($_SESSION)) {
 
 
 		  										<!-- this is part for picture background yg left side -->
-	  <!-- <div class="col-12 col-md-6 offset-md-1 d-flex">
-		  	<img src="assets/img/cleaning.jpg" class="full-picture flex-grow-1"> 
-		  </div> -->
+	  	  <div class="col-12 col-md-6 offset-md-1 d-flex">
+		  	<img src="assets/img/cleaning3.jpg" class="img-fluid"> 
+		  </div>
 	  </div>
   </div>
 </div>
@@ -121,16 +121,16 @@ if (!isset($_SESSION)) {
 		</ul>
 	</div>
 	<div class="social mt-4 mt-md-0">
-    <a class="twitter btn btn-outline-primary btn-icon" href="" target="_blank">
+    <a class="twitter btn btn-outline-primary btn-icon" href="https://twitter.com" target="_blank">
       <i class="fab fa-twitter"></i>
       <span class="sr-only">View our Twitter Profile</span>
     </a>
-    <a class="facebook btn btn-outline-primary btn-icon" href="" target="_blank">
+    <a class="facebook btn btn-outline-primary btn-icon" href="https://facebook.com" target="_blank">
       <i class="fab fa-facebook"></i>
       <span class="sr-only">View our Facebook Profile
         <span>
     </a>
-    <a class="github btn btn-outline-primary btn-icon" href="" target="_blank">
+    <a class="github btn btn-outline-primary btn-icon" href="https://github.com/fareena08/Web-Development" target="_blank">
       <i class="fab fa-github"></i>
       <span class="sr-only">View our GitHub Profile</span>
     </a>
