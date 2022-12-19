@@ -33,7 +33,7 @@
         <!--  <a href="#service">services</a> -->
          <a href="loginUser.php">book</a>
          <a href="RoleOptionLogin.php">login</a>
-         <a href="RoleOption.php">Register</a>
+         <a href="registerIndex.html">Register</a>
       </nav>
 
   <div id="menu-btn" class="fas fa-bars"></div>
