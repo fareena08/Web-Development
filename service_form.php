@@ -157,7 +157,7 @@ include_once 'service_form_crud.php';
 
    <div class="box-container">
 
-      <div class="box">
+<!--       <div class="box">
          <h3>quick links</h3>
          <a href="home.php"> <i class="fas fa-angle-right"></i> home</a>
          <a href="about.php"> <i class="fas fa-angle-right"></i> about</a>
@@ -171,7 +171,7 @@ include_once 'service_form_crud.php';
          <a href="#"> <i class="fas fa-angle-right"></i> privacy policy</a>
          <a href="#"> <i class="fas fa-angle-right">
          </i> terms of use</a>
-      </div>
+      </div> -->
 
       <div class="box">
          <h3>contact info</h3>
