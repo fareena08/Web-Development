@@ -46,7 +46,7 @@ if (isset($_POST['update'])) {
          
     $stmt->execute();
  
-    header("Location: service_form.php");
+    header("Location: service.php");
     }
  
   catch(PDOException $e)
@@ -68,7 +68,7 @@ if (isset($_GET['delete'])) {
      
     $stmt->execute();
  
-    header("Location: service_form.php");
+    header("Location: service.php");
     }
  
   catch(PDOException $e)
