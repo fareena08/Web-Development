@@ -1,57 +1,115 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Choose Your Role</title>
-  <style>
-    .button {
-  background-color: #611F6A ;
-  border-radius: 12px;
-  color: white;
-  /*padding: 10px 32px;*/
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+<meta charset="utf-8">
+<title>Home Service System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="author" content="BootstrapBay">
 
-  font-size: 15px;
-}
-    h1 {text-align: center;}
+ 
 
-  </style>
+    <link href="assets/img/logoo.png" rel="icon" type="image/png">
+
+ 
+
+    <link rel="stylesheet" href="./assets/vendor/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="./assets/css/lazy.css">
+<link rel="stylesheet" href="./assets/css/demo.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+
 </head>
-<body>
-<table width="100%" border="0" cellpadding="5">
-  <tr>
-    <td colspan="2" bgcolor="#611F6A">
-      <h1 ><font color="ffffff" face="verdana">Choose Your Role</h1>
-    </td>
-  </tr>
-</table>
+<body class="register">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<div class="container">
+<a class="navbar-brand d-flex align-items-center" >Home Service System</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown-1" aria-controls="navbarNavDropdown-1"
+      aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse text-center" id="navbarNavDropdown-1">
+<ul class="navbar-nav ml-auto">
+<li class="nav-item active">
+<a class="nav-link" href="index.php">Home
+<span class="sr-only">(current)</span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="registerIndex.html">Register</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
 
-<br>
-<br>
+ 
 
-  <div class="column">
-    <div class="row" style="text-align: center;">
-      <img src="assets/img/customer.png" alt="Admin" style="width:12%">
-      <br>
-      <a href="loginAdmin.php" class="button" style="padding: 10px 62px;">ADMIN</a>
-    </div>
-    <br>
-    <br>
-    <div class="row" style="text-align: center;">
-      <img src="assets/img/customer.png" alt="Customer" style="width:12%">
-      <br>
-      <a href="loginUser.php" class="button" style="padding: 10px 62px;">CUSTOMER</a>
-    </div>
-    <br>
-    <br>
-    <div class="row" style="text-align: center;">
-      <img src="assets/img/sp.png" alt="Service Provider" style="width:12%">
-      <br>
-      <a href="loginSP.php" class="button" style="padding: 10px 32px;">SERVICE PROVIDER</a>
-    </div>
 
-  </div>
+<div class="container-fluid">
+<div class="text-center">
+<div class="mb-5">
+<h1>Please Choose Your Role</h1>
+<p class="lead">Log into your account to start exploring.</p>
+</div>
+</div>
 
+ 
+
+    <div class="row">
+<div class="col-md-6">
+<div class="component">
+<div class="card">
+<div class="card-header">
+<img class="card-img" src="images/laundry.jpg" alt="dog">
+</div>
+<div class="card-body">
+<h4 class="card-title mt-2 text-center">Admin</h4>
+<p class="card-text text-center"></p>
+</div>
+<div class="card-footer text-center">
+<a href="loginAdmin.php" class="btn btn-outline-primary">Log in</a>
+</div>
+</div>
+</div> 
+</div>
+
+<div class="col-md-6">
+<div class="component">
+<div class="card">
+<div class="card-header">
+<img class="card-img" src="assets/img/cleaning4.jpg" alt="dog">
+</div>
+<div class="card-body">
+<h4 class="card-title mt-2 text-center">Service Provider</h4>
+<p class="card-text text-center">Come and join us as our Service Privider</p>
+</div>
+<div class="card-footer text-center">
+<a href="loginSP.php" class="btn btn-outline-primary">Log in</a>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-md-6">
+<div class="component">
+<div class="card">
+<div class="card-header">
+<img class="card-img" src="assets/img/cleaning5.jpg" alt="dog">
+</div>
+<div class="card-body">
+<h4 class="card-title mt-2 text-center">Customer</h4>
+<p class="card-text text-center">Join the community as our customer</p>
+</div>
+<div class="card-footer text-center">
+<a href="loginUser.php" class="btn btn-outline-primary">Log in</a>
+</div>
+</div>
+</div> 
+</div>
+
+</div>
+</div>
 </body>
 </html>
