@@ -65,33 +65,7 @@ if (!isset($_SESSION)) {
                  <small id="usernameHelp" class="form-text text-info">We'll never share your password with anyone else.</small>
 						  
                </div>
-						 
-						 <!-- <div class="form-group">
-						    <label for="exampleInputrole">Role</label>
-						    <input type="role" class="form-control" id="exampleInputusername1"  placeholder="Enter Your Role">
-						  </div> -->
-
-						  <!-- <div class="form-group"> -->
-					<!-- 	<span class="symbol-input100">
-							<i class="fa fa-bars"></i>
-						</span>
 						
-						 --><!-- <label for="exampleInputrole">Role</label>
-							<select name="Role" class="form-control" id="role" required>
-
-								<option value="">Please select a role</option>
-								<option value="Admin">Admin</option>
-								<option value="Service Provider">Service Provider</option>
-								<option value="Customer">Customer</option>
-							</select> -->
-								
-					
-					
-              <!-- <div class="custom-control custom-checkbox my-4">
-                <input type="checkbox" class="custom-control-input" id="customCheck2">
-                <label class="custom-control-label" for="customCheck2">Remember me</label>
-              </div> -->
-
 						   <button class="btn btn-block btn-primary" type="submit" name="create"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Login</button>
 							</form>
 
@@ -101,9 +75,9 @@ if (!isset($_SESSION)) {
 
 
 		  										<!-- this is part for picture background yg left side -->
-	  <!-- <div class="col-12 col-md-6 offset-md-1 d-flex">
-		  	<img src="assets/img/cleaning.jpg" class="full-picture flex-grow-1"> 
-		  </div> -->
+	  	  <div class="col-12 col-md-6 offset-md-1 d-flex">
+		  	<img src="assets/img/cleaning3.jpg" class="img-fluid"> 
+		  </div>
 	  </div>
   </div>
 </div>
@@ -121,16 +95,16 @@ if (!isset($_SESSION)) {
 		</ul>
 	</div>
 	<div class="social mt-4 mt-md-0">
-    <a class="twitter btn btn-outline-primary btn-icon" href="" target="_blank">
+    <a class="twitter btn btn-outline-primary btn-icon" href="https://twitter.com" target="_blank">
       <i class="fab fa-twitter"></i>
       <span class="sr-only">View our Twitter Profile</span>
     </a>
-    <a class="facebook btn btn-outline-primary btn-icon" href="" target="_blank">
+    <a class="facebook btn btn-outline-primary btn-icon" href="https://facebook.com" target="_blank">
       <i class="fab fa-facebook"></i>
       <span class="sr-only">View our Facebook Profile
         <span>
     </a>
-    <a class="github btn btn-outline-primary btn-icon" href="" target="_blank">
+    <a class="github btn btn-outline-primary btn-icon" href="https://github.com/fareena08/Web-Development" target="_blank">
       <i class="fab fa-github"></i>
       <span class="sr-only">View our GitHub Profile</span>
     </a>
