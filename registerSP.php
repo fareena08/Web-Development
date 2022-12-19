@@ -1,5 +1,5 @@
 <?php 
-include_once 'registerSp_crud.php';
+// include_once 'registerSp_crud.php';
 include_once 'validateRegisterSp.php';
 include_once 'database.php';
 $sql= "SELECT fld_service_name FROM tbl_service";
@@ -22,7 +22,7 @@ catch(Exception $ex){
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="author" content="BootstrapBay">
 
-    <link href="assets/img/favicon.ico" rel="icon" type="image/png">
+    <link href="assets/img/logoo.png" rel="icon" type="image/png">
     
     <link rel="stylesheet" href="./assets/vendor/bootstrap/bootstrap.min.css">
 		<link rel="stylesheet" href="./assets/css/lazy.css">
@@ -34,7 +34,7 @@ catch(Exception $ex){
     <div class="container-fluid">
 	    <div class="row">
 		    <div class="col-md-2 offset-md-1 d-flex justify-content-between">
-	        <a class="navbar-brand text-dark d-flex align-items-center" href="./"><img src="assets/img/logo.svg" alt="Example Navbar 1" height="25" class="mr-2">Home Service System</a>
+	        <a class="navbar-brand text-dark d-flex align-items-center" href="./"><img src="assets/img/logoo.png" alt="Example Navbar 1" height="25" class="mr-2">Home Service System</a>
 	        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown-7" aria-controls="navbarNavDropdown-7"
 	          aria-expanded="false" aria-label="Toggle navigation">
 	          <span class="navbar-toggler-icon"></span>
@@ -49,7 +49,7 @@ catch(Exception $ex){
 				  <div class="register-form">
 					  <div class="mb-5">
 						  <h1>Register</h1>
-						  <p class="lead">Create an account to start playing.</p>
+						  <p class="lead">Create an account to start exploring.</p>
 					  </div>
 					  <form action="registerSP.php" method="post" class="form-horizontal">
               <div class="form-group">
@@ -112,7 +112,7 @@ catch(Exception $ex){
 		  		</div>
 	  </div>
 	  <div class="col-12 col-md-6 offset-md-1 d-flex">
-		  <img src="img/cleaning2.jpg" class="full-picture flex-grow-1">
+		  <img src="assets/img/cleaning2.jpg" class="img-fluid">
 	  </div>
   </div>
 </div>
