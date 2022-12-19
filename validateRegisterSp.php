@@ -1,46 +1,74 @@
  <?php 
 
-include_once 'database.php';
+ include_once 'database.php';
 
-if(empty($_SESSION)) {
-    session_start();
-  }
+ if(empty($_SESSION)) {
+  session_start();
+}
 
-  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  if(isset($_POST['spEmail'])) {
+if(isset($_POST['create'])) {
 
-    try {
- 
+  try {
+
     $stmt = $conn->prepare("SELECT * from tbl_sp WHERE fld_sp_email = :spEmail");
 
-   
-    $stmt->bindParam(':spEmail', $email, PDO::PARAM_STR);
-       
-    $spEmail = $_POST['spEmail'];
-         
-    $stmt->execute();
 
+    $stmt->bindParam(':spEmail', $_POST['spEmail'], PDO::PARAM_STR);
+
+    $stmt->execute();
     $count = $stmt->rowCount();
+    //echo $count; die(); //to check  masuk ke tak
 
     $readrow = $stmt->fetch(PDO::FETCH_ASSOC);
     
-    if ($count == 1) {
+    if ($count > 0) {
       echo "<script>alert('Sorry, email has already exist. Please use a different email.');</script>";
     }
 
     else if($count == 0 ) {
-      // $_SESSION['spName'] = $readrow["fld_sp_name"];
-      echo "<script>alert('Welcome! You have successfully registered!');document.location='registerSP.php'</script>";
+
+      $stmt = $conn->prepare("INSERT INTO tbl_sp (fld_sp_name, fld_sp_role, fld_service_name, fld_sp_phone, fld_sp_addr, fld_sp_ssm, fld_sp_email, fld_sp_pass) VALUES(:spName, :spRole, :servName, :spPhone, :spAddr, :spSSM,:spEmail, :spPass)");
+      $stmt2 = $conn->prepare("INSERT INTO tbl_user (fld_role, fld_email, fld_pass) VALUES(:spRole,:spEmail, :spPass)");
+
+      $spName = $_POST['spName'];
+      $spRole = $_POST['spRole'];
+      $servName = $_POST['servName'];
+      $spPhone = $_POST['spPhone'];
+      $spAddr = $_POST['spAddr'];
+      $spSSM = $_POST['spSSM'];
+      $spEmail = $_POST['spEmail'];
+      $spPass = $_POST['spPass'];
+
+      $stmt->bindParam(':spName', $spName, PDO::PARAM_STR);
+      $stmt->bindParam(':spRole', $spRole, PDO::PARAM_STR);
+      $stmt->bindParam(':servName', $servName, PDO::PARAM_STR);
+      $stmt->bindParam(':spPhone', $spPhone, PDO::PARAM_STR);
+      $stmt->bindParam(':spAddr', $spAddr, PDO::PARAM_STR);
+      $stmt->bindParam(':spSSM', $spSSM, PDO::PARAM_STR);
+      $stmt->bindParam(':spEmail', $spEmail, PDO::PARAM_STR);
+      $stmt->bindParam(':spPass', $spPass, PDO::PARAM_STR);
+
+      $stmt->execute();
+
+
+      $stmt2->bindParam(':spRole', $spRole, PDO::PARAM_STR);
+      $stmt2->bindParam(':spEmail', $spEmail, PDO::PARAM_STR);
+      $stmt2->bindParam(':spPass', $spPass, PDO::PARAM_STR);
+
+      $stmt2->execute();
+      echo "<script>alert('Welcome! You have successfully registered!');document.location='loginSP.php'</script>";
       if(!session_id()) 
         session_start();
+      //header("Location: loginSP.php");
     }
     
   }
   catch(PDOException $e) {
-        echo "Error: " . $e->getMessage();
-    }
+    echo "Error: " . $e->getMessage();
   }
+}
 
- ?>
+?>
