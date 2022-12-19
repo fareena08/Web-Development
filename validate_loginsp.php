@@ -11,7 +11,7 @@ if(empty($_SESSION)) {
   $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  if(isset($_POST['username'])) {
+  if(isset($_POST['create'])) {
 
     try {
  
@@ -36,11 +36,11 @@ if(empty($_SESSION)) {
     }
 
     else if($count == 1 ) {
-      $_SESSION['username'] = $readrow["fld_sp_email"] && $_SESSION['password'] = $user['fld_sp_pass'] ;
+      $_SESSION['username'] = $readrow["fld_sp_name"];
       
       
       echo "<script>alert('Welcome {$_SESSION['username']}! You have successfully registered!');document.location='homeSP.php'</script>";
-      header("location: homeSP.php");
+  
 
     }
     
