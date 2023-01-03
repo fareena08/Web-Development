@@ -12,6 +12,7 @@ try{
 catch(Exception $ex){
 	$echo($ex -> getMessage());
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +55,8 @@ catch(Exception $ex){
 				<form action="registerSP.php" method="post" class="form-horizontal">
 					<div class="form-group">
 						<label class="mb-2 text-muted" for="spName">Company Name</label>
-						<input name="spName" type="text" class="form-control" id="spName" required autofocus>
+						<input name="spName" type="text" class="form-control" id="spName" oninput="this.value = this.value.toUpperCase()" required autofocus>
+
 					</div>
 
 					<div class="form-group">
@@ -94,8 +96,22 @@ catch(Exception $ex){
 					</div>
 
 					<div class="form-group">
+						<label for="location">Service Location</label>
+					<select name="location" id="location" class="form-control" required>
+						<option selected>-- Please select a location --</option>
+						<?php
+						$location = array
+						( "Ampang","Cheras","Selayang","Rawang","Wangsa Maju","Ampang","Klang","Damansara","Shah Alam","Semenyih","Bangi","Cyberjaya","Putrajaya");
+						foreach ($location as $locate){ ?>
+							<option> <?php echo $locate;?> </option>
+						<?php } ?>
+					</select>
+					</div>
+
+					<div class="form-group">
 						<label for="spPass">Password</label>
 						<input name="spPass" type="password" class="form-control" id="spPass" placeholder="Password" required>
+						<small id="emailHelp" class="form-text text-info">Put 8 characters only.</small>
 					</div>
 
 					<div class="custom-control custom-checkbox my-4">
@@ -162,3 +178,4 @@ catch(Exception $ex){
 		<script src="./assets/js/lazy.js"></script>
 	</body>
 	</html>
+
