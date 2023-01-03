@@ -29,6 +29,27 @@ catch(Exception $ex){
 	<link rel="stylesheet" href="./assets/css/lazy.css">
 	<link rel="stylesheet" href="./assets/css/demo.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+
+	<script>
+	// Example starter JavaScript for disabling form submissions if there are invalid fields
+		(function() {
+			'use strict';
+			window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+				var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+				var validation = Array.prototype.filter.call(forms, function(form) {
+					form.addEventListener('submit', function(event) {
+						if (form.checkValidity() === false) {
+							event.preventDefault();
+							event.stopPropagation();
+						}
+						form.classList.add('was-validated');
+					}, false);
+				});
+			}, false);
+		})();
+	</script>
 </head>
 <body class="register">
 	<nav class="navbar navbar-expand-md navbar-transparent navbar-light">
@@ -52,7 +73,7 @@ catch(Exception $ex){
 					<h1>Register</h1>
 					<p class="lead">Create an account to start exploring.</p>
 				</div>
-				<form action="registerSP.php" method="post" class="form-horizontal">
+				<form action="registerSP.php" method="post" class="was-validated" class="form-horizontal">
 					<div class="form-group">
 						<label class="mb-2 text-muted" for="spName">Company Name</label>
 						<input name="spName" type="text" class="form-control" id="spName" oninput="this.value = this.value.toUpperCase()" required autofocus>
@@ -86,32 +107,37 @@ catch(Exception $ex){
 
 					<div class="form-group">
 						<label class="mb-2 text-muted" for="spSSM">SSM Number</label>
-						<input name="spSSM" type="text" class="form-control" id="spSSM" value="" required>
+						<input name="spSSM" type="text" class="form-control" id="spSSM" value="" required minlength="12" maxlength="12">
+						<div class="invalid-feedback">
+							Please enter a valid SSM Number (12 characters).
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="location">Service Location</label>
+						<select name="location" id="location" class="form-control" required>
+							<option selected>-- Please select a location --</option>
+							<?php
+							$location = array
+							( "Ampang","Cheras","Selayang","Rawang","Wangsa Maju","Ampang","Klang","Damansara","Shah Alam","Semenyih","Bangi","Cyberjaya","Putrajaya");
+							foreach ($location as $locate){ ?>
+								<option> <?php echo $locate;?> </option>
+							<?php } ?>
+						</select>
 					</div>
 
 					<div class="form-group">
 						<label for="spEmail">Email address</label>
 						<input name="spEmail" type="email" class="form-control" id="spEmail" aria-describedby="emailHelp" value="" placeholder="Enter email" required>
 						<small id="emailHelp" class="form-text text-info">We'll never share your email with anyone else.</small>
-					</div>
-
-					<div class="form-group">
-						<label for="location">Service Location</label>
-					<select name="location" id="location" class="form-control" required>
-						<option selected>-- Please select a location --</option>
-						<?php
-						$location = array
-						( "Ampang","Cheras","Selayang","Rawang","Wangsa Maju","Ampang","Klang","Damansara","Shah Alam","Semenyih","Bangi","Cyberjaya","Putrajaya");
-						foreach ($location as $locate){ ?>
-							<option> <?php echo $locate;?> </option>
-						<?php } ?>
-					</select>
-					</div>
+					</div>	
 
 					<div class="form-group">
 						<label for="spPass">Password</label>
-						<input name="spPass" type="password" class="form-control" id="spPass" placeholder="Password" required>
-						<small id="emailHelp" class="form-text text-info">Put 8 characters only.</small>
+						<input name="spPass" type="password" class="form-control" id="spPass" placeholder="Password" required minlength="8" maxlength="8">
+						<div class="invalid-feedback">
+							Please enter a valid password (8 characters).
+						</div>
 					</div>
 
 					<div class="custom-control custom-checkbox my-4">
