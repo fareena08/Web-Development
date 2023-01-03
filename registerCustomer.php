@@ -100,9 +100,6 @@ if (!isset($_SESSION)) {
 					<div class="form-group">
 						<label for="cPass">Password</label>
 						<input name="cPass" type="password" class="form-control" id="cPass" placeholder="Password"required minlength="8" maxlength="8">
-						<div class="valid-feedback">
-							Looks good!
-						</div>
 						<div class="invalid-feedback">
 							Please enter a valid password (8 characters).
 						</div>
@@ -177,4 +174,5 @@ if (!isset($_SESSION)) {
 	}
 </script>
 </html>
+
 
