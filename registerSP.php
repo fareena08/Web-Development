@@ -82,7 +82,7 @@ catch(Exception $ex){
 
 					<div class="form-group">
 						<label for="exampleInputrole">Role</label>
-						<input name="spRole" class="form-control" id="spRole" value="Service Provider" readonly>
+						<input name="spRole" type="text" class="form-control" id="spRole" value="Service Provider" readonly>
 					</div>
 
 					<div class="form-group">
@@ -204,4 +204,5 @@ catch(Exception $ex){
 		<script src="./assets/js/lazy.js"></script>
 	</body>
 	</html>
+
 
