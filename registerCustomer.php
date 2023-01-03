@@ -1,5 +1,4 @@
 <?php
-// include_once 'registerCustomer_crud.php';
 include_once 'validateRegisterCust.php';
 
 if (!isset($_SESSION)) {
@@ -80,6 +79,7 @@ if (!isset($_SESSION)) {
 					<div class="form-group">
 						<label for="cPass">Password</label>
 						<input name="cPass" type="password" class="form-control" id="cPass" placeholder="Password" value="" required>
+						<small id="emailHelp" class="form-text text-info">Put 8 characters only.</small>
 					</div>
 
 					<div class="custom-control custom-checkbox my-4">
@@ -151,3 +151,4 @@ if (!isset($_SESSION)) {
 	}
 </script>
 </html>
+
