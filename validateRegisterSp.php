@@ -1,4 +1,4 @@
- <?php 
+  <?php 
 
  include_once 'database.php';
 
@@ -14,33 +14,31 @@ if(isset($_POST['create'])) {
   try {
 
     $stmt = $conn->prepare("SELECT * from tbl_sp WHERE fld_sp_email = :spEmail");
-
-
     $stmt->bindParam(':spEmail', $_POST['spEmail'], PDO::PARAM_STR);
-
     $stmt->execute();
     $count = $stmt->rowCount();
     //echo $count; die(); //to check  masuk ke tak
-
     $readrow = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $stmt = $conn->prepare("SELECT * from tbl_sp WHERE fld_sp_name = :spName");
+    $stmt->bindParam(':spName', $_POST['spName'], PDO::PARAM_STR);
+    $stmt->execute();
+    $count1 = $stmt->rowCount();
+    //echo $count; die(); //to check  masuk ke tak
+    $readrow = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($count1 > 0) {
+      echo "<script>alert('Sorry, Company Name has already exist. Please use a different name.');</script>";
+    }
     
     if ($count > 0) {
       echo "<script>alert('Sorry, email has already exist. Please use a different email.');</script>";
     }
 
-    else if($count == 0 ) {
+    else if($count == 0 && $count1 == 0) {
 
-      $stmt = $conn->prepare("INSERT INTO tbl_sp (fld_sp_name, fld_sp_role, fld_service_name, fld_sp_phone, fld_sp_addr, fld_sp_ssm, fld_sp_email, fld_sp_pass) VALUES(:spName, :spRole, :servName, :spPhone, :spAddr, :spSSM,:spEmail, :spPass)");
+      $stmt = $conn->prepare("INSERT INTO tbl_sp (fld_sp_name, fld_sp_role, fld_service_name, fld_sp_phone, fld_sp_addr, fld_sp_ssm, fld_sp_email, fld_sp_pass, fld_location) VALUES(:spName, :spRole, :servName, :spPhone, :spAddr, :spSSM,:spEmail, :spPass, :location)");
       $stmt2 = $conn->prepare("INSERT INTO tbl_user (fld_role, fld_email, fld_pass) VALUES(:spRole,:spEmail, :spPass)");
-
-      $spName = $_POST['spName'];
-      $spRole = $_POST['spRole'];
-      $servName = $_POST['servName'];
-      $spPhone = $_POST['spPhone'];
-      $spAddr = $_POST['spAddr'];
-      $spSSM = $_POST['spSSM'];
-      $spEmail = $_POST['spEmail'];
-      $spPass = $_POST['spPass'];
 
       $stmt->bindParam(':spName', $spName, PDO::PARAM_STR);
       $stmt->bindParam(':spRole', $spRole, PDO::PARAM_STR);
@@ -50,6 +48,7 @@ if(isset($_POST['create'])) {
       $stmt->bindParam(':spSSM', $spSSM, PDO::PARAM_STR);
       $stmt->bindParam(':spEmail', $spEmail, PDO::PARAM_STR);
       $stmt->bindParam(':spPass', $spPass, PDO::PARAM_STR);
+      $stmt->bindParam(':location', $location, PDO::PARAM_STR);
 
       $stmt->execute();
 
