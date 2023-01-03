@@ -40,6 +40,16 @@ if(isset($_POST['create'])) {
       $stmt = $conn->prepare("INSERT INTO tbl_sp (fld_sp_name, fld_sp_role, fld_service_name, fld_sp_phone, fld_sp_addr, fld_sp_ssm, fld_sp_email, fld_sp_pass, fld_location) VALUES(:spName, :spRole, :servName, :spPhone, :spAddr, :spSSM,:spEmail, :spPass, :location)");
       $stmt2 = $conn->prepare("INSERT INTO tbl_user (fld_role, fld_email, fld_pass) VALUES(:spRole,:spEmail, :spPass)");
 
+      $spName = $_POST['spName'];
+      $spRole = $_POST['spRole'];
+      $servName = $_POST['servName'];
+      $spPhone = $_POST['spPhone'];
+      $spAddr = $_POST['spAddr'];
+      $spSSM = $_POST['spSSM'];
+      $spEmail = $_POST['spEmail']; 
+      $spPass = $_POST['spPass'];
+      $location = $_POST['location'];
+
       $stmt->bindParam(':spName', $spName, PDO::PARAM_STR);
       $stmt->bindParam(':spRole', $spRole, PDO::PARAM_STR);
       $stmt->bindParam(':servName', $servName, PDO::PARAM_STR);
