@@ -1,4 +1,4 @@
-  <?php 
+ <?php 
 
  include_once 'database.php';
 
@@ -13,7 +13,7 @@
     // $cEmail = $_POST['create'];
     $stmt = $conn->prepare("SELECT * from tbl_customer WHERE fld_cust_email = :cEmail");
     $stmt->bindParam(':cEmail', $_POST['cEmail'], PDO::PARAM_STR);
-    
+
     $stmt->execute();
 
     $count = $stmt->rowCount();
@@ -25,11 +25,9 @@
 
 
     $stmt->bindParam(':cUsername', $_POST['cUsername'], PDO::PARAM_STR);
-
     $stmt->execute();
     $count1 = $stmt->rowCount();
     //echo $count; die(); //to check  masuk ke tak
-
     $readrow = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($count1 > 0) {
@@ -40,7 +38,7 @@
       echo "<script>alert('Sorry, email has already exist. Please use a different email.');</script>";
     }
 
-    else if($count == 0 && $count1 == 0 ) {
+    else if($count == 0 && $count1 == 0) {
       $stmt = $conn->prepare("INSERT INTO tbl_customer (fld_cust_name, fld_cust_username, fld_role, fld_cust_phone, fld_cust_addr, fld_cust_email, fld_cust_pass) VALUES(:cName,:cUsername, :role, :cPhone, :cAddr, :cEmail, :cPass)");
 
       $cName = $_POST['cName'];
@@ -66,7 +64,7 @@
       $stmt2->bindParam(':role', $role, PDO::PARAM_STR);
       $stmt2->bindParam(':cEmail', $cEmail, PDO::PARAM_STR);
       $stmt2->bindParam(':cPass', $cPass, PDO::PARAM_STR);
-      
+
       $stmt2->execute();
       echo "<script>alert('Welcome! You have successfully registered!');document.location='loginUser.php'</script>";
       if(!session_id()) 
