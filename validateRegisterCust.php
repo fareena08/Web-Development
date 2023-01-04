@@ -1,4 +1,4 @@
- <?php 
+  <?php 
 
  include_once 'database.php';
 
@@ -58,14 +58,6 @@
       $stmt->bindParam(':cPass', $cPass, PDO::PARAM_STR);
 
       $stmt->execute();
-
-      $stmt2 = $conn->prepare("INSERT INTO tbl_user (fld_role,fld_email, fld_pass) VALUES(:role,:cEmail, :cPass)");
-
-      $stmt2->bindParam(':role', $role, PDO::PARAM_STR);
-      $stmt2->bindParam(':cEmail', $cEmail, PDO::PARAM_STR);
-      $stmt2->bindParam(':cPass', $cPass, PDO::PARAM_STR);
-
-      $stmt2->execute();
       echo "<script>alert('Welcome! You have successfully registered!');document.location='loginUser.php'</script>";
       if(!session_id()) 
         session_start();
