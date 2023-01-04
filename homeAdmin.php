@@ -130,7 +130,7 @@ session_start()
       <p>We are an online platform that offers customers a wide range of home services that suits your need, from a bunch of companies and freelancers out there. </p>
       <!-- <button id="openBtn" type="button" data-target="#myModal" data-href="about.php" class="btn" >read more</button> -->
       <!-- <button id= openBtn type="button" data-target="#myModal" data-href  href="about.php" class="btn">read more</a> -->
-      <a href="readmore.php" class='btn'>read more</a>
+      <a href="about.php" class='btn'>read more</a>
    </div>
 
 </section>
