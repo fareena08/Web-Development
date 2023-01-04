@@ -228,11 +228,11 @@ section{
 
 .input-container{display: -ms-flexbox;
   width: 100%;
-        padding: 0px 8px;
-        margin: 5px 0px 5px 0px;
-        box-sizing: border-box;
-        border-radius: 5px;
-        font: 100% Lucida Sans, Verdana;
+  padding: 0px 8px;
+  margin: 5px 0px 5px 0px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font: 100% Lucida Sans, Verdana;
 
 }
 
@@ -256,7 +256,8 @@ section{
    }*/
 
 .table-responsive{
- 
+ margin-right: auto;
+ margin-left: auto;
  transform: translate(40%,-10%);
  width: 60%; 
  border-collapse: collapse;
@@ -444,3 +445,7 @@ input[type=text]{
     border-color:dodgerBlue;
     box-shadow:0 0 8px 0 dodgerBlue;
   }
+  .center {
+  margin-left: auto;
+  margin-right: auto;
+}
