@@ -37,7 +37,7 @@ if(isset($_POST['create'])) {
 
     else if($count == 0 && $count1 == 0) {
 
-      $stmt = $conn->prepare("INSERT INTO tbl_sp (fld_sp_name, fld_sp_role, fld_service_name, fld_sp_phone, fld_sp_addr, fld_sp_ssm, fld_sp_email, fld_sp_pass, fld_location) VALUES(:spName, :spRole, :servName, :spPhone, :spAddr, :spSSM,:spEmail, :spPass, :location)");
+      $stmt = $conn->prepare("INSERT INTO tbl_sp (fld_sp_name, fld_sp_role, fld_service_name, fld_sp_phone, fld_sp_addr, fld_sp_ssm, fld_sp_email, fld_sp_pass, fld_location, fld_sp_status) VALUES(:spName, :spRole, :servName, :spPhone, :spAddr, :spSSM,:spEmail, :spPass, :location, 'Pending')");
       $stmt2 = $conn->prepare("INSERT INTO tbl_user (fld_role, fld_email, fld_pass) VALUES(:spRole,:spEmail, :spPass)");
 
       $spName = $_POST['spName'];
