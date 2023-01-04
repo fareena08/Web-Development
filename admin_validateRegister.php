@@ -56,7 +56,7 @@ include_once 'admin_validateRegister_crud.php';
 
 <section id="service" class="services">
    
-   <h3 class="heading-title" style="margin-bottom:50px;">New Request</h3>
+   <h3 class="heading-title" style="margin-bottom: auto;">New Request</h3>
    
 
    
@@ -66,13 +66,12 @@ include_once 'admin_validateRegister_crud.php';
 
 <!-- about section starts  -->
 
+<!-- <div class="class-body">
+  <div class="table-responsive"> -->
 
-
-<div class="class-body">
-     <div class="table-responsive">
       
-      <table class="table table-bordered">
-  <thead class="thead-dark">
+    <table class="center" >
+    <thead class="thead-dark">
     <tr>
       <th scope="col">Service Provider Name</th>
       <th scope="col">SSM Number</th>
@@ -80,7 +79,7 @@ include_once 'admin_validateRegister_crud.php';
       <th scope="col">Action</th>
 
     </tr>
-  </thead>
+    </thead>
   <tbody>
    <?php
    $per_page = 40;
@@ -124,10 +123,11 @@ include_once 'admin_validateRegister_crud.php';
   </tbody>
 </table>
 
-   </div>
+   <<!-- /div>
 
 </div>
-</section>
+</div> -->
+
 
 <section></section>
 
