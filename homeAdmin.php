@@ -35,7 +35,7 @@ session_start()
          <a href="homeAdmin.php">home</a>
         <!--  <a href="about.php">about</a> -->
          <a href="service_form.php">services</a>
-         <a href="#">Validate Account</a>
+         <a href="admin_validateRegister.php">Validate Account</a>
          <a style="color:black"><?php echo "Hi, {$_SESSION['username']}!" ?></a>
          <a href="logout.php" class='fas fa-sign-out-alt'></a>
       </nav>
