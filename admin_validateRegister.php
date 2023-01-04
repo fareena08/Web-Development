@@ -41,7 +41,6 @@ include_once 'admin_validateRegister_crud.php';
 
       <nav class="navbar">
          <a href="homeAdmin.php">home</a>
-         <a href="about.php">about</a>
          <a href="service_form.php">Establish services</a>
          <a href="#">Validate Account</a>
          <a style="color:black"></a>
