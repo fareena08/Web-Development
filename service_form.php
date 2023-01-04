@@ -42,9 +42,9 @@ include_once 'service_form_crud.php';
 
       <nav class="navbar">
          <a href="homeAdmin.php">home</a>
-         <a href="about.php">about</a>
-         <a href="admin_establish.php">services</a>
-         <a href="#">Validate Account</a>
+         <!-- <a href="about.php">about</a> -->
+         <a href="service_form.php">Establish services</a>
+         <a href="admin_validateRegister.php">Validate Account</a>
          <a style="color:black"></a>
          <a href="logout.php" class='fas fa-sign-out-alt'></a>
       </nav>
@@ -72,7 +72,7 @@ include_once 'service_form_crud.php';
 <div class="class-body">
      <div class="table-responsive">
 
-      <table class="table table-bordered">
+      <table class="table table-bordered" style="margin-left:auto;margin-right:auto;" >
   <thead class="thead-dark">
     <tr>
       <th scope="col">Service ID</th>
@@ -106,9 +106,9 @@ include_once 'service_form_crud.php';
         <td><?php echo $readrow['fld_service_name']; ?></td>
         
         <td>
-         <a href="service_form.php?edit=<?php echo $readrow['fld_service_id']; ?>" class="btn btn-outline-primary" role="button"> Edit </a>
+         <a href="service_form.php?edit=<?php echo $readrow['fld_service_id']; ?>" class="btn btn-outline-primary" role="button" style="background-color: limegreen"> Edit </a>
           
-          <a href="service_form.php?delete=<?php echo $readrow['fld_service_id']; ?>" name="delete" onclick="return confirm('Are you sure to delete?');" class="btn btn-outline-danger" role="button">Delete</a>
+          <a href="service_form.php?delete=<?php echo $readrow['fld_service_id']; ?>" name="delete" onclick="return confirm('Are you sure to delete?');" class="btn btn-outline-danger" role="button" style="background-color: red">Delete</a>
 
         </td>
       </tr>
@@ -125,7 +125,7 @@ include_once 'service_form_crud.php';
 </div>
 </section>
 <form style="max-height: 500px;margin: auto; width: 600px;" method="post" >
-   <h1 align="center" style="color:black"><strong> Add Service </strong></h1>
+   <h1 align="center" style="color:black; margin-top:30px;" ><strong> Add Service </strong></h1>
 <div class="input-container">
     <input class="input-field" type="text" name="fld_service_id" placeholder="Enter Service ID" value="<?php if(isset($_GET['edit'])) echo $editrow['fld_service_id']; ?>">
 
@@ -145,8 +145,6 @@ include_once 'service_form_crud.php';
     <?php } ?>
 </form>
 <section></section>
-
-<!-- home about section ends -->
 
 
 
