@@ -68,11 +68,12 @@ include_once 'service_form_crud.php';
 <!-- about section starts  -->
 
 
-
+<!-- 
 <div class="class-body">
      <div class="table-responsive">
 
-      <table class="table table-bordered" style="margin-left:auto;margin-right:auto;" >
+      <table class="table table-bordered" style="margin-left:auto;margin-right:auto;" > -->
+  <table class="center">
   <thead class="thead-dark">
     <tr>
       <th scope="col">Service ID</th>
@@ -119,11 +120,11 @@ include_once 'service_form_crud.php';
    
   </tbody>
 </table>
-
+<!-- 
    </div>
 
 </div>
-</section>
+</section> -->
 <form style="max-height: 500px;margin: auto; width: 600px;" method="post" >
    <h1 align="center" style="color:black; margin-top:30px;" ><strong> Add Service </strong></h1>
 <div class="input-container">
