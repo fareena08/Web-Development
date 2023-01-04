@@ -56,7 +56,7 @@ include_once 'admin_validateRegister_crud.php';
 
 <section id="service" class="services">
    
-   <h3 class="heading-title" style="margin-bottom: 200px;">New Request</h3>
+   <h3 class="heading-title" style="margin-bottom:50px;">New Request</h3>
    
 
    
