@@ -132,7 +132,7 @@ session_start()
    <div class="content">
       <h3>about us</h3>
       <p>We are an online platform that offers customers a wide range of home services that suits your need, from a bunch of companies and freelancers out there. </p>
-      <a href="readmore.php" class="btn">read more</a>
+      <a href="about.php" class="btn">read more</a>
    </div>
 
 </section>
