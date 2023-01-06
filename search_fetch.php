@@ -31,16 +31,24 @@ if(isset($_POST["action"]))
 		foreach($result as $row)
 		{
 			$output .= '
-			<div class="col-sm-4 col-lg-3 col-md-3">
-			<div style="border:1px solid #ccc; border-radius:5px; padding:16px; margin-bottom:16px; height:450px;">
-			<img src="images/'. $row['fld_image'] .'" alt="" class="img-fluid" >
-			<p align="center"><strong><a href="#">'. $row['fld_sp_name'] .'</a></strong></p>
-			<h4 style="text-align:center;" class="text-danger" >'. $row['fld_price'] .'</h4>
-			<p>Location : '. $row['fld_location'].'<br />
-			Address : '. $row['fld_sp_addr'] .'</p>
+			<div class="col-sm-4 col-lg-3 col-md-3 mb-4">
+				<div class="card h-100">
+					<div style="height: 15rem;">
+						<img src="images/'. $row['fld_image'] .'" alt="" class="img-fluid" >
+					</div>
+					<div class="card-body">
+						<p align="center"><strong><a href="#">'. $row['fld_sp_name'] .'</a></strong></p>
+						<h4 style="text-align:center;" class="text-danger" > RM'. $row['fld_price'] .'</h4>
+						<p>Location : '. $row['fld_location'].'<br />
+						Address : '. $row['fld_sp_addr'] .'</p>
+					</div>
+					
+					<center>
+					<a href="booking.php" class="btn btn-primary btn-pill">Book</a>
+					</center>
+				</div>
 			</div>
 
-			</div>
 			';
 		}
 	}
@@ -52,4 +60,6 @@ if(isset($_POST["action"]))
 }
 
 ?>
+
+
 
