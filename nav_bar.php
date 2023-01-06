@@ -13,7 +13,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Profile</a>
+          <a class="nav-link" href="custProfile.php">Profile</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="search.php">Search</a>
