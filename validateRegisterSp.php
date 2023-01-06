@@ -37,7 +37,7 @@ if(isset($_POST['create'])) {
 
     else if($count == 0 && $count1 == 0) {
 
-      $stmt = $conn->prepare("INSERT INTO tbl_sp (fld_sp_name, fld_sp_role, fld_service_name, fld_sp_phone, fld_sp_addr, fld_sp_ssm, fld_sp_email, fld_sp_pass, fld_location, fld_sp_status) VALUES(:spName, :spRole, :servName, :spPhone, :spAddr, :spSSM,:spEmail, :spPass, :location, 'Pending')");
+      $stmt = $conn->prepare("INSERT INTO tbl_sp (fld_sp_name, fld_sp_role, fld_service_name, fld_sp_phone, fld_sp_addr, fld_sp_ssm, fld_sp_email, fld_sp_pass, fld_location, fld_sp_status, postdate) VALUES(:spName, :spRole, :servName, :spPhone, :spAddr, :spSSM,:spEmail, :spPass, :location, :pdate, 'Pending')");
 
       $spName = $_POST['spName'];
       $spRole = $_POST['spRole'];
@@ -48,6 +48,7 @@ if(isset($_POST['create'])) {
       $spEmail = $_POST['spEmail']; 
       $spPass = $_POST['spPass'];
       $location = $_POST['location'];
+      $postdate = date("Y-m-d", time());
 
       $stmt->bindParam(':spName', $spName, PDO::PARAM_STR);
       $stmt->bindParam(':spRole', $spRole, PDO::PARAM_STR);
@@ -58,6 +59,7 @@ if(isset($_POST['create'])) {
       $stmt->bindParam(':spEmail', $spEmail, PDO::PARAM_STR);
       $stmt->bindParam(':spPass', $spPass, PDO::PARAM_STR);
       $stmt->bindParam(':location', $location, PDO::PARAM_STR);
+      $stmt->bindParam(':pdate', $postdate, PDO::PARAM_STR);
 
       $stmt->execute();
       
