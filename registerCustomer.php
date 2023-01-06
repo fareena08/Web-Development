@@ -63,6 +63,7 @@ if (!isset($_SESSION)) {
 			<div class="register-form">
 				<div class="mb-5">
 					<h1>Register</h1>
+					<input type="hidden" name="postdate" value="<?php echo date("d-m-Y",time()); ?>">
 					<p class="lead">Create an account to start exploring.</p>
 				</div>
 				<form action="registerCustomer.php" method="post"  class="was-validated" class="form-horizontal">
