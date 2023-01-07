@@ -33,9 +33,9 @@ session_start()
 
          <nav class="navbar">
             <a href="homeCust.php">home</a>
-            <a href="#">Profile</a>
+            <a href="custProfile">Profile</a>
             <!-- <a href="about.php">about</a> -->
-           <!--  <a href="#service">services</a> -->
+            <a href="search.php">search</a>
             <a href="#">book</a>
             <a style="color:black"><?php echo "Hi, {$_SESSION['username']}!" ?></a>
             <a href="logout.php" class='fas fa-sign-out-alt'></a>
