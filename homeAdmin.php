@@ -33,7 +33,7 @@ session_start()
 
       <nav class="navbar">
          <a href="homeAdmin.php">home</a>
-        <!--  <a href="about.php">about</a> -->
+         <a href="sp+profile.php">Profile</a>
          <a href="service_form.php">services</a>
          <a href="admin_validateRegister.php">Validate Account</a>
          <a style="color:black"><?php echo "Hi, {$_SESSION['username']}!" ?></a>
