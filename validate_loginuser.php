@@ -43,7 +43,7 @@ if(empty($_SESSION)) {
       $_SESSION['custusername'] = $readrow["fld_cust_username"];
       
       
-      echo "<script>alert('Welcome {$_SESSION['name']}! You have successfully registered!');document.location='homeCust.php'</script>";
+      echo "<script>alert('Welcome {$_SESSION['name']}! You have successfully logged in!');document.location='homeCust.php'</script>";
       
 
     }
