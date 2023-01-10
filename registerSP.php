@@ -205,5 +205,3 @@ catch(Exception $ex){
 		<script src="./assets/js/lazy.js"></script>
 	</body>
 	</html>
-
-
