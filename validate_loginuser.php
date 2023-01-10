@@ -36,10 +36,14 @@ if(empty($_SESSION)) {
     }
 
     else if($count == 1 ) {
-      $_SESSION['username'] = $readrow["fld_cust_name"];
+      $_SESSION['email'] = $readrow["fld_cust_email"];
+      $_SESSION['name'] = $readrow["fld_cust_name"];
+      $_SESSION['Phone'] = $readrow["fld_cust_phone"];
+      $_SESSION['Address'] = $readrow["fld_cust_addr"];
+      $_SESSION['custusername'] = $readrow["fld_cust_username"];
       
       
-      echo "<script>alert('Welcome {$_SESSION['username']}! You have successfully registered!');document.location='homeCust.php'</script>";
+      echo "<script>alert('Welcome {$_SESSION['name']}! You have successfully registered!');document.location='homeCust.php'</script>";
       
 
     }
