@@ -175,5 +175,3 @@ if (!isset($_SESSION)) {
 	}
 </script>
 </html>
-
-
