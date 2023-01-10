@@ -19,7 +19,7 @@
           <a class="nav-link" href="search.php">Search</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Book</a>
+          <a class="nav-link" href="booking_list_cust.php">Booking List</a>
         </li>
       </ul>
     </div>
