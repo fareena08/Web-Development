@@ -132,7 +132,7 @@ img {
            <div class="info_data">
                  <div class="data">
                   <h2>Profile Picture</h2>
-                  <input type='file' name='fileToUpload' id='fileToUpload' required>
+                  <input type='file' name='fileToUpload' id='fileToUpload' >
     <br><input type='submit' value='Upload Image' name='submit'></div></div>
              <center>
       <button class="btn btn-block btn-primary" type="submit" name="updateprofile" onclick="window.location.href='editcustProfile.php';"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Update Profile</button></center>
