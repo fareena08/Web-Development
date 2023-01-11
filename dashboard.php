@@ -298,6 +298,6 @@ $countPHC2 = mysqli_num_rows($sql20);
 	<!-- NAVBAR -->
 
 	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-	<script src="scriptDashboard.js"></script>
+	<script src="js/scriptDashboard.js"></script>
 </body>
 </html>
