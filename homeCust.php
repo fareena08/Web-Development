@@ -44,16 +44,6 @@ session_start()
      <div id="menu-btn" class="fas fa-bars"></div>
    </section>
 
-<!--search button-->
-<center>
-   <link rel="stylesheet" href="css/searchStyle.css">
-   <form action="" method="GET">
-
-   <input type="text" name="search" placeholder="Search any service"><i class="fas fa-search" style='font-size:40px' ></i>
-
-   </form>
-   </center>
-
 <!--banner section start-->
 <section class="home">
 
