@@ -94,7 +94,7 @@ section{
 }
 
 .wrapper{
-  margin-top: 100px;
+  margin-top: 120px;
   margin-bottom: 100px;
   position: absolute;
   top: 50%;
@@ -127,7 +127,7 @@ section{
 
 .wrapper .right{
   width: 65%;
-  background: #fff;
+  background: #f6f1f8;
   padding: 30px 25px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -138,8 +138,8 @@ section{
   margin-bottom: 25px;
 }
 
-.wrapper .right .info h3,
-.wrapper .right .projects h3{
+.wrapper .right .info h1,
+.wrapper .right .projects h1{
     margin-bottom: 15px;
     padding-bottom: 5px;
     border-bottom: 1px solid #e0e0e0;
@@ -159,10 +159,13 @@ section{
   width: 45%;
 }
 
-.wrapper .right .info_data .data h4,
-.wrapper .right .projects_data .data h4{
+.wrapper .right .info_data .data h2,
+.wrapper .right .projects_data .data h2{
     color: #353c4e;
+    font-size: 18px;
     margin-bottom: 5px;
+    letter-spacing: 4px;
+
 }
 
 .wrapper .right .info_data .data p,
@@ -170,6 +173,10 @@ section{
   font-size: 13px;
   margin-bottom: 10px;
   color: #919aa3;
+}
+
+.wrapper .right .info_data .data input{
+   margin: auto;
 }
 
 .wrapper .social_media ul{
