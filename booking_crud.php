@@ -7,6 +7,8 @@ $uid=$_GET['fld_sp_id'];
 
 $connect = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+ 
+}
 
 //Insert
 
