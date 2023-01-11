@@ -5,10 +5,10 @@
 if (isset($_POST['updateprofile'])) {
  
   // try {
-  //   $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-  //   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
        
-  //   $stmt = $conn->prepare("SELECT tbl_customer WHERE fld_cust_email = '".$_SESSION['email']."'");
+    // $stmt = $conn->prepare("SELECT tbl_customer WHERE fld_cust_email = '".$_SESSION['email']."'");
  
     // $stmt->bindParam('".$_SESSION['name']."', $name, PDO::PARAM_STR);
     // $stmt->bindParam('".$_SESSION['Phone']."', $Phone, PDO::PARAM_STR);
@@ -31,27 +31,9 @@ if (isset($_POST['updateprofile'])) {
        $update = "UPDATE tbl_customer SET fld_cust_username='$name',fld_cust_phone='$Phone',fld_cust_addr='$Address' WHERE fld_cust_email='$email'";
      $sql2=mysqli_query($conn,$update);
 
-    //  if($sql2)
-    //    { 
-    //        /*Successful*/
-           // header('location:custProfile.php');
-    //    }
-    //    else
-    //    {
-    //        sorry your profile is not update
-    //        header('location:editcustProfile.php');
-    //    }
-    // }
-    // else
-    // {
-    //     /*sorry your id is not match*/
-    //     header('location:editcustProfile.php');
-    // }
- 
-    // header("Location:custProfile.php");
-    
- }}
- // mysql_close();
- header('location:custProfile.php');
-    
+ }
+
+}
+
 ?>
+
