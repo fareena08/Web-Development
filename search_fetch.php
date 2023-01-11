@@ -31,6 +31,7 @@ if(isset($_POST["action"]))
 		foreach($result as $row)
 		{
 			$output .= '
+			<a href ="booking.php?page=service&fld_sp_id='. $row['fld_sp_id'].'">
 			<div class="col-sm-4 col-lg-3 col-md-3 mb-4">
 				<div class="card h-100">
 					<div style="height: 15rem;">
