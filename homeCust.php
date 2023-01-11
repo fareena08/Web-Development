@@ -37,7 +37,7 @@ session_start()
             <!-- <a href="about.php">about</a> -->
             <a href="search.php">search</a>
             <a href="#">book</a>
-            <a style="color:black"><?php echo "Hi, {$_SESSION['username']}!" ?></a>
+            <a style="color:black"><?php echo "Hi, {$_SESSION['name']}!" ?></a>
             <a href="logout.php" class='fas fa-sign-out-alt'></a>
          </nav>
 
