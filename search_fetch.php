@@ -28,7 +28,7 @@ if(isset($_POST["action"]))
 	$output = '';
 	if($total_row > 0)
 	{
-		foreach($result as $row)
+		 foreach($result as $row) 
 		{
 			$output .= '
 			<a href ="booking.php?page=service&fld_sp_id='. $row['fld_sp_id'].'">
@@ -45,10 +45,12 @@ if(isset($_POST["action"]))
 					</div>
 					
 					<center>
-					<a href="booking.php?page=service&fld_sp_id='. $row['fld_sp_id'].'">" class="btn btn-primary btn-pill">Book</a>
+
+					<a href ="booking.php?page=service&fld_sp_id='. $row['fld_sp_id'].'" class="btn btn-primary btn-pill">Book</a>
 					</center>
 				</div>
 			</div>
+		
 
 			';
 		}
@@ -61,6 +63,8 @@ if(isset($_POST["action"]))
 }
 
 ?>
+
+
 
 
 
