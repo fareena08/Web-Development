@@ -36,7 +36,7 @@ session_start()
 
          <nav class="navbar">
             <a href="homeSP.php">home</a>
-            <a href="#">Profile</a>
+            <a href="sp_profile.php">Profile</a>
            <!--  <a href="about.php">about</a> -->
            <!--  <a href="#service">services</a> -->
             <a href="#">Booking List</a>
