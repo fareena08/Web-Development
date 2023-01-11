@@ -33,7 +33,7 @@ session_start()
 
          <nav class="navbar">
             <a href="homeCust.php">home</a>
-            <a href="custProfile">Profile</a>
+            <a href="custProfile.php">Profile</a>
             <!-- <a href="about.php">about</a> -->
             <a href="search.php">search</a>
             <a href="#">book</a>
