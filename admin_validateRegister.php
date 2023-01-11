@@ -37,10 +37,10 @@ include_once 'admin_validateRegister_crud.php';
 
    <section class="header">
 
-      <a href="home.php" class="logo">HSS</a>
+      <a href="dashboard.php" class="logo">HSS</a>
 
       <nav class="navbar">
-         <a href="homeAdmin.php">home</a>
+         <a href="dashboard.php">home</a>
          <a href="service_form.php">Establish services</a>
          <a href="#">Validate Account</a>
          <a style="color:black"></a>
