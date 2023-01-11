@@ -70,7 +70,7 @@ $countPHC2 = mysqli_num_rows($sql20);
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-	<link rel="stylesheet" href="css/styleDashboard.css">
+	<link rel="stylesheet" href="styleDashboard.css">
 	<title>Admin Dashboard</title>
 	<link href="assets/img/logoo.png" rel="icon" type="image/png">
 
