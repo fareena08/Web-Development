@@ -1,15 +1,16 @@
 <?php 
 session_start();
+
 include "database.php";
 
 try {
   $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
        
-  $stmt = $conn->prepare("SELECT * FROM tbl_customer WHERE fld_cust_username = 'Far'");
+  $stmt = $conn->prepare("SELECT * FROM tbl_customer WHERE fld_cust_email = '".$_SESSION['email']."'");
   $stmt->execute();
 
-  $result = $stmt->fetchAll();
+  $result = $stmt->fetch(PDO::FETCH_ASSOC);
 }
 catch(PDOException $e)
 {
@@ -19,11 +20,11 @@ catch(PDOException $e)
     $conn = null;
 ?> 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-   <title>Home Service System</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Home Service System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="author" content="BootstrapBay">
 
@@ -38,6 +39,11 @@ catch(PDOException $e)
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/styleHome.css">
 
+   <!-- custom css profile link-->
+  <link rel="stylesheet" href="css/profile.css">
+
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
 <style>
 img {
   width: 200px;
@@ -45,6 +51,7 @@ img {
   border-radius: 50%;
 }
 </style>
+
 </head>
 <body>
 
@@ -58,80 +65,86 @@ img {
             <a href="homeCust.php">home</a>
             <a href="custProfile.php">Profile</a>
             <a href="#">book</a>
+            <a style="color:black"><?php echo "Hi, {$_SESSION['name']}!" ?></a>
             <a href="logout.php" class='fas fa-sign-out-alt'></a>
          </nav>
 
      <div id="menu-btn" class="fas fa-bars"></div>
    </section>
+<section>
+<div class="wrapper">
+    <div class="left">
+        <!-- <img src="" 
+        alt="user" width="100"> -->
 
-       <center>
-<!-- header -->
+        <!-- <img src="img/harrypic.jpeg" width="20%" height="20%" class="img-responsive img-circle margin" style="display:inline">
+ -->
+      <?php if ($_SESSION['custimage'] == "" ) { 
+        echo '<img src="img/noprofile.jpeg">';
 
-<div class="container-fluid bg-success text-center">
- <br>
-  <h1 class="margin">CUSTOMER PROFILE</h1><br>
-  <img src="img/harrypic.jpeg" width="20%" height="20%" class="img-responsive img-circle margin" style="display:inline">
-  <!-- <h2>Harry Potter</h2> --> 
+      }
+      else { ?>
+      <img src="img/<?php echo $_SESSION['custimage'] ?>" >
+      <?php } ?>
+
+
+        <br><br>
+        <h1><a style="color:white;text-transform: uppercase;font-family: 'Josefin Sans', sans-serif;"><?php echo "{$_SESSION['name']}" ?></a> </h1>
+         <!-- <p>Customer</p> -->
+    </div>
+
+    <div class="right">
+        <div class="info">
+          <center>
+            <h1>CUSTOMER PROFILE</h1></center>
+            <br>
+
+            <form action="updatecustProfile.php" method="post" >
+              
+            <div class="info_data">
+                 <div class="data">
+                    <h2>Username</h2>
+                    <input type="text" name="name" class="form-control" size="100" required value="<?php echo "{$_SESSION['custusername']}" ?>">
   <br>
-  <h2>  <a style="color:black"><?php echo "{$_SESSION['username']}" ?></a> </h2>
-   
-                    <div class="col-lg-6">
-                       <!--  <?php
-foreach($result as $row) {
- 
-  echo "Username : ".$row["fld_cust_username"]."<br>";
-  echo "Name : ".$row["fld_cust_name"]."<br>";
-  echo "Phone Number : ".$row["fld_cust_phone"]."<br>";
-  echo "Email : ".$row["fld_cust_email"]."<br>";
-  echo "Address : ".$row["fld_cust_addr"]."<br>";
-  // echo "Action : <a href=edit.php?id=".$row["id"].">Edit</a> / <a href=delete.php?id=".$row["id"].">Delete</a>";
+                 </div>
+            </div><br>
+            <div class="info_data">
+                 <div class="data">
+                    <h2>Email</h2>
+                    <p><?php echo "{$_SESSION['email']}" ?></p>
   
-  echo "<hr>";
-}
-?> -->
-
-                          <div class="input-group">
-                            <div class="input-group-prepend">
-                           <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required value="<?php echo $row["fld_cust_username"]; ?>">
-                          </div>
-                            </div>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                            <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1" required value="<?php echo $row["fld_cust_name"]; ?>">
-                          </div>
-                            </div>
-
-                          <div class="input-group">
-                            <div class="input-group-prepend">
-                           <input type="text" class="form-control" placeholder="Phone" aria-label="Phone" aria-describedby="basic-addon1" required value="<?php echo $row["fld_cust_phone"]; ?>">
-                          </div>
-                            </div>
-
-                          <div class="input-group">
-                            <div class="input-group-prepend">
-                             <input type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" required value="<?php echo $row["fld_cust_email"]; ?>">
-                          </div>
-                            </div>
-
-                             <div class="input-group">
-                            <div class="input-group-prepend">
-                            <input type="text" class="form-control" placeholder="Address" aria-label="Address" aria-describedby="basic-addon1" required value="<?php echo $row["fld_cust_addr"]; ?>">
-                          </div>
-                            </div>
-
-                        </div>
-
-                        </div>
-               
-
-                     <button class="btn btn-block btn-primary" type="submit" name="create" onclick="window.location.href='updatecustProfile.php';"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Update Profile</button>
-                    <!--  </form> -->
-</div></center>
+                 </div> 
+               </div>
+               <div class="info_data">
+                 <div class="data">
+                    <h2>Phone</h2>
+                     <input type="text" name="Phone" size="100" required value="<?php echo "{$_SESSION['Phone']}" ?>">
   <br>
-<!-- Edit Form -->
-<div class="container-fluid text-center">
-<!-- footer section starts  -->
+                 </div>
+            </div><br>
+            <div class="info_data">
+                 <div class="data">
+                    <h2>Address</h2>
+                    <input type="text" name="Address" size="100" required value="<?php echo "{$_SESSION['Address']}" ?>">
+  <br>
+                 </div> 
+               </div><br>
+           <div class="info_data">
+                 <div class="data">
+                  <h2>Profile Picture</h2>
+                  <input type='file' name='fileToUpload' id='fileToUpload' required>
+    <br><input type='submit' value='Upload Image' name='submit'></div></div>
+             <center>
+      <button class="btn btn-block btn-primary" type="submit" name="updateprofile" onclick="window.location.href='editcustProfile.php';"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Update Profile</button></center>
 
+               </form>
+
+        </div>
+      
+    </div>
+</div>
+</section>
+<section></section><section></section><br><br><br><br><br><br>
 <section class="footer">
 
    <div class="box-container">
@@ -168,6 +181,3 @@ foreach($result as $row) {
 
 </body>
 </html>
-
-
-
