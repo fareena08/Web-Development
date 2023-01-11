@@ -62,8 +62,8 @@ img {
          <a href="home.php" class="logo">HSS</a>
 
          <nav class="navbar">
-            <a href="homeCust.php">home</a>
-            <a href="custProfile.php">Profile</a>
+            <a href="homeSP.php">home</a>
+            <a href="sp_profile.php">Profile</a>
             <a href="#">book</a>
             <a style="color:black"><?php echo "Hi, {$_SESSION['fld_sp_name']}!" ?></a>
             <a href="logout.php" class='fas fa-sign-out-alt'></a>
