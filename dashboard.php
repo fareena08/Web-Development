@@ -60,6 +60,26 @@ $countBHC2 = mysqli_num_rows($sql19);
 
 $sql20= mysqli_query($conn, "SELECT * FROM tbl_booking where fld_service_name='Premium House Cleaning';");
 $countPHC2 = mysqli_num_rows($sql20);
+
+//chart.js
+
+$sql21= mysqli_query($conn, "SELECT * FROM tbl_sp where postdate > now() - INTERVAL 1 month AND fld_service_name='Lawn and Garden Cleaning';");
+$countLAGC3 = mysqli_num_rows($sql21);
+
+$sql22= mysqli_query($conn, "SELECT * FROM tbl_sp where postdate > now() - INTERVAL 1 month AND fld_service_name='One Day Maid';");
+$countODM3 = mysqli_num_rows($sql22);
+
+$sql23= mysqli_query($conn, "SELECT * FROM tbl_sp where postdate > now() - INTERVAL 1 month AND fld_service_name='Pond Cleaning';");
+$countPC3 = mysqli_num_rows($sql23);
+
+$sql24= mysqli_query($conn, "SELECT * FROM tbl_sp where postdate > now() - INTERVAL 1 month AND fld_service_name='Sofa and Mattress Cleaning';");
+$countSAMC3 = mysqli_num_rows($sql24);
+
+$sql25= mysqli_query($conn, "SELECT * FROM tbl_sp where postdate > now() - INTERVAL 1 month AND fld_service_name='Basic House Cleaning';");
+$countBHC3 = mysqli_num_rows($sql25);
+
+$sql26= mysqli_query($conn, "SELECT * FROM tbl_sp where postdate > now() - INTERVAL 1 month AND fld_service_name='Premium House Cleaning';");
+$countPHC3 = mysqli_num_rows($sql26);
      
 
 ?>
@@ -73,6 +93,15 @@ $countPHC2 = mysqli_num_rows($sql20);
 	<link rel="stylesheet" href="styleDashboard.css">
 	<title>Admin Dashboard</title>
 	<link href="assets/img/logoo.png" rel="icon" type="image/png">
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+		<style type="text/css">
+			.dashboard {
+				width:1000px;
+				padding: 20px;
+			}
+		</style>
 
 	<!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -147,6 +176,8 @@ $countPHC2 = mysqli_num_rows($sql20);
       chart.draw(view, options);
   }
   </script>
+
+  
 </head>
 <body>
 	
@@ -183,7 +214,7 @@ $countPHC2 = mysqli_num_rows($sql20);
 				<li><a href="#" class="active">Dashboard</a></li>
 			</ul>
 			<div class="info-data">
-				<div class="card">
+				<div class="card" style="background-color: #D98880;">
 					<div class="head">
 						<div>
 							<h2><?php echo $countCust ?></h2>
@@ -194,18 +225,7 @@ $countPHC2 = mysqli_num_rows($sql20);
 					<!-- <span class="progress" data-value="80%"></span>
 					<span class="label">80%</span> -->
 				</div>
-				<div class="card">
-					<div class="head">
-						<div>
-							<h2><?php echo $countRegLast7day?></h2>
-							<p>Registered Customer Last 7 Day</p>
-						</div>
-						<i class='las la-users la-4x icon' style="margin-top: 10px;"></i>
-						
-					</div>
-					<!-- <span class="progress" data-value="80%"></span>
-					<span class="label">80%</span> -->
-				</div>
+				
 				<div class="card">
 					<div class="head">
 						<div>
@@ -217,18 +237,8 @@ $countPHC2 = mysqli_num_rows($sql20);
 					<!-- <span class="progress" data-value="30%"></span>
 					<span class="label">30%</span> -->
 				</div>
-				<div class="card">
-					<div class="head">
-						<div>
-							<h2><?php echo $countSPLast1month?></h2>
-							<p>Registered Service Provider Last 4 Weeks</p>
-						</div>
-						<i class="las la-users-cog la-3x icon" style="margin-top: 10px;"></i>
-					</div>
-					<!-- <span class="progress" data-value="80%"></span>
-					<span class="label">80%</span> -->
-				</div>
-				<div class="card">
+				
+				<div class="card" style="background-color:#80B7D9;">
 					<div class="head">
 						<div>
 							<h2><?php echo $countService?></h2>
@@ -239,7 +249,7 @@ $countPHC2 = mysqli_num_rows($sql20);
 					<!-- <span class="progress" data-value="80%"></span>
 					<span class="label">80%</span> -->
 				</div>
-				<div class="card">
+				<div class="card" style="background-color:#80D9A9;">
 					<div class="head">
 						<div>
 							<h2><?php echo $countBooking?></h2>
@@ -251,32 +261,82 @@ $countPHC2 = mysqli_num_rows($sql20);
 					<!-- <span class="progress" data-value="80%"></span>
 					<span class="label">80%</span> -->
 				</div>
-				<div class="card">
-					<div class="head">
-						<div>
-							<h2><?php echo $countBookLast7day?></h2>
-							<p>Booking Last 7 Day</p>
-						</div>
-						<i class="las la-clipboard-list la-3x icon" style="margin-top: 10px;"></i>
-					</div>
-					<!-- <span class="progress" data-value="80%"></span>
-					<span class="label">80%</span> -->
-				</div>
-				<div class="card">
-					<div class="head">
-						<div>
-							<h2><?php echo $countBookLast2Week?></h2>
-							<p>Booking Last 2 Week</p>
-						</div>
-						<i class="las la-clipboard-list la-3x icon" style="margin-top: 10px;"></i>
-						</div>
-						
-					</div>
-					<!-- <span class="progress" data-value="80%"></span>
-					<span class="label">80%</span> -->
-				</div>
+				
+				
 			</div>
-			<div class="data">
+			<div class="dashboard">
+			<div class="select-container">
+				<label for="chart-select" style="font-size: 18px;">Registered Service Provider:</label>
+				<select id="chart-select">
+					<option value="last1month">Last 1 month</option>
+					<option value="last6month">Last 6 month</option>
+					<option value="last12month">Last 12 month</option>
+				</select>
+			</div>
+			<canvas id="myChart"></canvas>
+			<script>
+
+				var ctx = document.getElementById('myChart').getContext('2d');
+				var chart = new Chart(ctx, {
+					type: 'bar',
+					data: {
+						labels: ['Lawn and Garden Cleaning','One Day Maid', 'Pond Cleaning', 'Sofa and Mattress Cleaning', 'Basic Cleaning', 'Premium Cleaning' ],
+						datasets: [{
+							label: 'Service Providers',
+							data: [<?php echo $countLAGC3?>,
+							       <?php echo $countODM3?>, 
+							       <?php echo $countPC3?>, 
+							       <?php echo $countSAMC3?>, 
+							       <?php echo $countBHC3?>,
+							       <?php echo $countPHC3?>],
+							backgroundColor: [ 'rgba(255, 99, 132, 0.2)',
+										      'rgba(255, 159, 64, 0.2)',
+										      'rgba(255, 205, 86, 0.2)',
+										      'rgba(75, 192, 192, 0.2)',
+										      'rgba(54, 162, 235, 0.2)',
+										      'rgba(153, 102, 255, 0.2)'],
+							borderColor: ['rgb(255, 99, 132)',
+									      'rgb(255, 159, 64)',
+									      'rgb(255, 205, 86)',
+									      'rgb(75, 192, 192)',
+									      'rgb(54, 162, 235)',
+									      'rgb(153, 102, 255)'],
+							borderWidth: 1
+						}]
+					},
+					options: {
+						scales: {
+							y: {
+								beginAtZero: true
+							} 
+						}
+					}
+				});
+
+				var select = document.getElementById('chart-select');
+				select.addEventListener('change', function() {
+					var selectedOption = this.value;
+					if (selectedOption === 'last1month') {
+						chart.data.datasets[0].data = [
+								   <?php echo $countLAGC3?>,
+							       <?php echo $countODM3?>, 
+							       <?php echo $countPC3?>, 
+							       <?php echo $countSAMC3?>, 
+							       <?php echo $countBHC3?>,
+							       <?php echo $countPHC3?>];
+						chart.data.datasets[0].label = 'Users';
+					} else if (selectedOption === 'last6month') {
+						chart.data.datasets[0].data = [5000, 6000, 7000, 8000, 9000, 10000, 11000];
+						chart.data.datasets[0].label = 'Revenue';
+					} else if (selectedOption === 'last12month') {
+						chart.data.datasets[0].data = [30, 35, 40, 45, 50, 55, 60];
+						chart.data.datasets[0].label = 'Orders';
+					}
+					chart.update();
+				});
+
+			</script>
+			<!-- <div class="data">
 				<div class="content-data">
 					<div class="head">
 						<h3>Analytics</h3>
@@ -288,10 +348,10 @@ $countPHC2 = mysqli_num_rows($sql20);
 					<div class="head">
 						<h3>Analytics</h3>
 					</div>
-					<div id="columnchart_values" style="width: 200px; height: 450px;"></div>
+					<div id="columnchart_values" style="width: 150px; height: 450px;"></div>
 					
 				</div>
-			</div>
+			</div> -->
 		</main>
 		<!-- MAIN -->
 	</section>
