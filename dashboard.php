@@ -178,7 +178,7 @@ if (isset($_POST['submit'])) {
 		}
 		table {
 			border-collapse: collapse;
-			width: 300px;
+			width: 100%;
 		}
 		th, td {
 			border: 1px solid #ddd;
@@ -602,6 +602,7 @@ var options = {'title':'Number of Service Providers based on Service',
 		<tr>
 			<th>Rank</th>
 			<th>Provider</th>
+			<th>Total Booking</th>
 		</tr>
 		<?php
 		include 'database.php';
@@ -612,6 +613,7 @@ var options = {'title':'Number of Service Providers based on Service',
 			echo "<tr>";
 			echo "<td>" . $rank . "</td>";
 			echo "<td>" . $row['fld_sp_name'] . "</td>";
+			echo "<td>" . $row['num'] . "</td>";
 			echo "</tr>";
 			$rank++;
 		}
