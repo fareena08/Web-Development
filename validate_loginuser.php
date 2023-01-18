@@ -36,6 +36,7 @@ if(empty($_SESSION)) {
     }
 
     else if($count == 1 ) {
+      $_SESSION['fld_user_id'] = $readrow["fld_user_id"];
       $_SESSION['email'] = $readrow["fld_cust_email"];
       $_SESSION['name'] = $readrow["fld_cust_name"];
       $_SESSION['Phone'] = $readrow["fld_cust_phone"];
