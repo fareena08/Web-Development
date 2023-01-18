@@ -115,6 +115,9 @@ session_start();
             <td>  <center>
               
                   <a href="booking_details_cust.php?bid=<?php echo $orderrow['fld_booking_id']; ?>" class="btn btn-outline-secondary" style="background-color: #F89F58;" role="button">Details</a>
+                  <td>
+                  <a href="invoice.php?bid=<?php echo $orderrow['fld_booking_id']; ?>" class="btn btn-outline-secondary" style="background-color: #F89F58;" role="button">Invoice</a></td>
+
                 <?php } ?>
               </center> </td>
             </tr>
