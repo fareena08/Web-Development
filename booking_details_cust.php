@@ -1,8 +1,12 @@
 <?php
-include_once 'database.php';
-$con = mysqli_connect($servername,$username,$password);
-include_once 'booking_details_cust_crud.php';
 
+session_start();
+include('database.php');
+
+
+$connect = null;
+
+//include_once 'booking_crud.php';
 ?>
 
 <!DOCTYPE html>
@@ -40,8 +44,8 @@ include_once 'booking_details_cust_crud.php';
       <a href="home.php" class="logo">HSS</a>
 
       <nav class="navbar">
-            <a href="homeCust.php">home</a>
-            <a href="custProfile.php">Profile</a>
+            <a href="homeSP.php">home</a>
+            <a href="sp_profile.php">Profile</a>
             <a href="booking.php">Booking List</a>
             <a href="logout.php" class='fas fa-sign-out-alt'></a>
          </nav>
@@ -111,23 +115,47 @@ include_once 'booking_details_cust_crud.php';
               <td><?php echo $readrow['fld_time']?></td>
             </tr>
             <tr>
-              <td><strong>Price RM</strong></td>
-              <td><?php echo $readrow['fld_price']?></td>
-            </tr>
-            <tr>
               <td><strong>Status</strong></td>
               <td><?php echo $readrow['fld_booking_status']?></td>
             </tr>
           </table>
-          <form action="booking_details_cust.php" method="POST">
+          <form action="#">
             <input type="hidden" name="bid" value ="<?php echo $readrow['fld_booking_id']; ?>">
-            <input type="submit" class="btn btn-outline-danger" name="cancel"  value="Cancel" role="button" style="background-color: red">
+            <input type="submit" class="btn btn-outline-danger" name="reject"  value="Cancel Request" role="button" style="background-color: red" onclick="return confirm('Are you sure to reject this booking?');">
+            <button class="btn btn-outline-danger" onclick="window.location.href='review.php?bid=<?php echo $readrow['fld_booking_id'] ?>'">Give Review</button>
+
           </form>
         </td>
         </div>
         </center>
       </div>
     </div>
+
+<script type="text/javascript">
+
+  function validateForm() {
+
+    var x = document.forms["frmorder"]["pid"].value;
+    var y = document.forms["frmorder"]["quantity"].value;
+      //var x = document.getElementById("prd").value;
+      //var y = document.getElementById("qty").value;
+    if (x == null || x == "") {
+      alert("Product must be selected");
+      document.forms["frmorder"]["pid"].focus();
+          //document.getElementById("prd").focus();
+      return false;
+    }
+    if (y == null || y == "") {
+      alert("Quantity must be filled out");
+      document.forms["frmorder"]["quantity"].focus();
+          //document.getElementById("qty").focus();
+      return false;
+    }
+
+    return true;
+  }
+
+</script>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

@@ -2,9 +2,25 @@
 
 session_start();
 include('database.php');
+
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+       
+  $stmt = $conn->prepare("SELECT * FROM tbl_customer WHERE fld_cust_email = '".$_SESSION['email']."'");
+  $stmt->execute();
+
+  $result = $stmt->fetchAll();
+}
+catch(PDOException $e)
+{
+        echo "Error: " . $e->getMessage();
+    }
+ 
+$conn = null;
 if (isset($_GET['fld_sp_id'])) {
 
-$uid=$_GET['fld_sp_id'];
+//$uid=$_GET['fld_sp_id'];
 
 $connect = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -21,9 +37,12 @@ $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
    //exit('Service Provider does not exist');
 }
 
+
+
 $connect = null;
 
-include_once 'booking_crud.php';
+include_once 'booking_crud.php'; 
+
 ?>
 
 <!DOCTYPE html>
@@ -58,12 +77,13 @@ include_once 'booking_crud.php';
       <a href="home.php" class="logo">HSS</a>
 
       <nav class="navbar">
-         <a href="homeAdmin.php">home</a>
-         <!-- <a href="about.php">about</a> -->
-         <a href="service_form.php">Establish services</a>
-         <a href="admin_validateRegister.php">Validate Account</a>
-         <a style="color:black"><?php echo "Hi, {$_SESSION['username']}!" ?></a>
-         <a href="logout.php" class='fas fa-sign-out-alt'></a>
+         <a href="homeCust.php">home</a>
+            <a href="custProfile.php">Profile</a>
+            <!-- <a href="about.php">about</a> -->
+            <a href="search.php">search</a>
+            <a href="booking.php">book</a>
+            <a style="color:black"><?php echo "Hi, {$_SESSION['custusername']}!" ?></a>
+            <a href="logout.php" class='fas fa-sign-out-alt'></a>
       </nav>
 
   <div id="menu-btn" class="fas fa-bars"></div>
@@ -72,35 +92,38 @@ include_once 'booking_crud.php';
 <section>
  <h3 class="heading-title">Booking</h3>
 <div class= "container">
-   <img src="images/<?=$service['fld_image']?>" name="fld_image" alt="<?php echo $service['fld_sp_name']?>" width="500" height="500">
-      <h1 class="spname" ><?php echo $service['fld_sp_name']?></h1>
-      <h3 class="sername"><?php echo $service['fld_service_name']?></h3>
-   <form action=#>
+   <img src="images/<?php echo $service['fld_image']; ?>" name="fld_image" alt="<?php echo $service['fld_sp_name']; ?>" width="500" height="500">
+      <h1 class="spname" ><?php echo $service['fld_sp_name']; ?></h1>
+      <h3 class="sername"><?php echo $service['fld_service_name']; ?></h3>
+   <form action="booking.php" method="POST">
       <div class="customer-details">
+
+         <input class="input-field" name="bid" type="hidden">
+         <input class="input-field2" name="fld_user_id" value="<?php echo "{$_SESSION['fld_user_id']}" ?>" type="hidden">
+
          <div class="input-box">
             <span class="details">Full Name</span>
-            <input class="input-field" name="fld_cust_name" type="text" placeholder="Enter Your Full Name" required>
+            <input class="input-field" name="fld_cust_name" type="text" placeholder="Enter Your Full Name" required value="<?php echo "{$_SESSION['name']}" ?>">
          </div>
       
          <div class="input-box">
             <span class="details">Address</span>
-            <input class="input-field" name="fld_cust_address" type="text" placeholder="Enter Your Full Address" required>
-         </div>
-      
-
-         <div class="input-box">
-            <span class="details">Price</span>
-            <input class="input-field" name="fld_price" type="text" value="<?php echo $service['fld_price']?>" readonly>
+            <input class="input-field" name="fld_cust_address" type="text" placeholder="Enter Your Full Address" required value="<?php echo "{$_SESSION['Address']}" ?>">
          </div>
 
          <div class="input-box">
             <span class="details">Service Provider Name</span>
-            <input class="input-field" name="fld_sp_name" type="text" value="<?php echo $service['fld_sp_name']?>" readonly>
+            <input class="input-field" name="fld_sp_name" type="text" value="<?php echo $service['fld_sp_name']; ?>" readonly>
          </div>
 
          <div class="input-box">
             <span class="details">Service</span>
-            <input class="input-field" name="fld_price" type="text" value="<?php echo $service['fld_service_name']?>" readonly>
+            <input class="input-field" name="fld_service_name" type="text" value="<?php echo $service['fld_service_name']; ?>" readonly>
+         </div>
+
+         <div class="input-box">
+            <span class="details">Price</span>
+            <input class="input-field" name="fld_price" type="text" value="<?php echo $service['fld_price']; ?>" readonly>
          </div>
          
          
@@ -119,19 +142,19 @@ include_once 'booking_crud.php';
          </div>
         <div class="input-box">
           <label>Time</label>
-          <div class="custom_select" name="fld_time">
-            <select>
+          <div class="custom_select" >
+            <select name="fld_time">
               <option value="">Select</option>
-              <option value="8">8.00 AM</option>
-              <option value="9">9.00 AM</option>
-              <option value="10">10.00 AM</option>
-              <option value="11">11.00 AM</option>
-              <option value="12">12.00 PM</option>
-              <option value="13">13.00 PM</option>
-              <option value="14">14.00 PM</option>
-              <option value="15">15.00 PM</option>
-              <option value="16">16.00 PM</option>
-              <option value="17">17.00 PM</option>
+              <option value="8.00 AM">8.00 AM</option>
+              <option value="9.00 AM">9.00 AM</option>
+              <option value="10.00 AM">10.00 AM</option>
+              <option value="11.00 AM">11.00 AM</option>
+              <option value="12.00 PM">12.00 PM</option>
+              <option value="13.00 PM">13.00 PM</option>
+              <option value="14.00 PM">14.00 PM</option>
+              <option value="15.00 PM">15.00 PM</option>
+              <option value="16.00 PM">16.00 PM</option>
+              <option value="17.00 PM">17.00 PM</option>
             </select>
           </div>
        </div> 
@@ -191,5 +214,4 @@ include_once 'booking_crud.php';
 
 </body>
 </html>
-
 
