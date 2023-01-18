@@ -176,6 +176,18 @@ if (isset($_POST['submit'])) {
 			border: solid 2px rgba(54, 162, 235, 1);
 			background: white;
 		}
+		table {
+			border-collapse: collapse;
+			width: 300px;
+		}
+		th, td {
+			border: 1px solid #ddd;
+			padding: 8px;
+			text-align: left;
+		}
+		th {
+			background-color: #f2f2f2;
+		}
 	</style>
 
 	<!--Load the AJAX API-->
@@ -542,7 +554,7 @@ var options = {'title':'Number of Service Providers based on Service',
 </div>
 <div class="content-data">
 	<div class="head">
-		<h3>Top 3 Service Provider</h3>
+		<h3>Number Of Registered Customer</h3>
 	</div>
 	<form method="post" action="">
 		<label for="month">Select Month:</label>
@@ -582,6 +594,30 @@ var options = {'title':'Number of Service Providers based on Service',
 	<?php endif; ?>
 
 </div>
+<div class="content-data">
+	<div class="head">
+		<h3>Analytics</h3>
+	</div>
+	<table>
+		<tr>
+			<th>Rank</th>
+			<th>Provider</th>
+		</tr>
+		<?php
+		include 'database.php';
+		$query = "SELECT fld_sp_name, count(fld_sp_name) as num FROM tbl_booking GROUP BY fld_sp_name ORDER BY num DESC LIMIT 3";
+		$result = mysqli_query($conn, $query);
+		$rank = 1;
+		while($row = mysqli_fetch_assoc($result)) {
+			echo "<tr>";
+			echo "<td>" . $rank . "</td>";
+			echo "<td>" . $row['fld_sp_name'] . "</td>";
+			echo "</tr>";
+			$rank++;
+		}
+		mysqli_close($conn);
+		?>
+	</table>
 <!-- 
 				<div class="content-data">
 					<div class="head">
