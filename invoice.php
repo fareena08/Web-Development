@@ -68,7 +68,7 @@ catch(PDOException $e)
 </div>
 <hr>
 <div class="row">
-  <div class="col-sm-5">
+<!--   <div class="col-sm-5"> -->
     <div class="panel panel-default" >
       <div class="panel-heading" style="background-color:#8e44ad; color: white;">
         <h4>From: <?php echo $detailrow['fld_sp_name'] ?></h4>
@@ -79,7 +79,9 @@ catch(PDOException $e)
       </div>
     </div>
   </div>
-    <div class="col-xs-5 col-xs-offset-2">
+</div>
+<div class="row">
+<!-- <div class="col-sm-5 "> -->
         <div class="panel panel-default">
             <div class="panel-heading" style="background-color:#8e44ad; color: white;">
               <h4>To : <?php echo $detailrow['fld_cust_name'] ?></h4>
@@ -91,8 +93,7 @@ catch(PDOException $e)
 
             </div>
         </div>
-    </div>
-</div>
+    </div></div>
  <center>
 <table class="table table-bordered" style="background-color:whitesmoke ;  width:100%;">
   <tr style="background-color:#8e44ad; color: white;" >
@@ -111,12 +112,12 @@ catch(PDOException $e)
 </table></center>
  
 <div class="row">
-  <div class="col-sm-5">
+ <!--  <div class="col-sm-5"> -->
     <div class="panel panel-default">
-      <div class="panel-heading" style="background-color:#8e44ad;color: white;">
+      <div class="panel-heading" style="background-color:white">
         <h4 >Bank Details</h4>
       </div>
-      <div class="panel-body" style="background-color: whitesmoke;">
+      <div class="panel-body" style="background-color: white;">
         <p>Your Name</p>
         <p>Bank Name</p>
         <p>Account Number : </p>
@@ -124,7 +125,10 @@ catch(PDOException $e)
       </div>
     </div>
     </div>
-  <div class="col-xs-5 col-xs-offset-2 ">
+  
+</div>
+<div class="row">
+<!-- <div class="col-xs-5"> -->
     <div class="span7">
       <div class="panel panel-default">
         <div class="panel-heading" style="background-color:#8e44ad; color: white;">
@@ -140,13 +144,13 @@ catch(PDOException $e)
   ?> 
       </div>
     </div>
-  </div>
-</div><center>
+  </div></div><center>
 <div><a href="booking_list_cust.php" class="btn btn-outline-secondary" align="left" style="background-color: #8e44ad; color: white;" role="button">Previous</a>
   <input type="button" class="btn btn-outline-secondary" style="background-color: #8e44ad; color: white;" value="Print Invoice" onclick="window.print()"/>
   <!-- <input type="button" class="btn btn-outline-secondary" style="background-color: #8e44ad; color: white;" value="Download Invoice" onclick="window.jspdf()"/> -->
   </center></div>
 
   <!-- <a href="invoice.php?file=pdffilename" download>Download Invoice</a> -->
+  
 </body>
 </html>
