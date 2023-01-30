@@ -1,9 +1,10 @@
 <?php
  
- session_start();
+session_start();
  include "database.php";
+
 if (isset($_POST['updateprofile'])) {
- 
+  
   // try {
     // $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -33,7 +34,13 @@ if (isset($_POST['updateprofile'])) {
 
  }
 
-}
+if($res= $row['fld_cust_email']){
+    $_SESSION['custusername'] = $_POST['name'];
+    $_SESSION['Phone'] = $_POST['Phone'];
+    $_SESSION['Address'] = $_POST['Address'];
+    header("Location:custProfile.php");
 
+}
+}
 ?>
 
