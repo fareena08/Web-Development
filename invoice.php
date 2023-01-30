@@ -61,7 +61,7 @@ catch(PDOException $e)
 </div>
 
   <div >
-  <h1>INVOICE</h1>
+  <h3>INVOICE</h3>
   <h5>Order ID: <?php echo $detailrow['fld_booking_id'] ?></h5>
   <h5>Date: <?php echo $detailrow['postdate'] ?></h5>
 </div>
