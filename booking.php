@@ -215,5 +215,6 @@ include_once 'booking_crud.php';
     </script>
 
 </body>
+  
 </html>
 
