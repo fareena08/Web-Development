@@ -1,6 +1,7 @@
 <?php 
 session_start();
 include "database.php";
+
 // include_once 'editcustProfile.php';
 // include_once 'updatecustProfile.php';
 try {
@@ -11,6 +12,8 @@ try {
   $stmt->execute();
 
   $result = $stmt->fetchAll();
+
+     
 }
 catch(PDOException $e)
 {
@@ -70,21 +73,17 @@ img {
          </nav>
 
      <div id="menu-btn" class="fas fa-bars"></div>
-   </section><br>
-<section><br>
+   </section>
+<section>
 <div class="wrapper">
     <div class="left">
-        <!-- <img src="" 
-        alt="user" width="100"> -->
-
-        <!-- <img src="img/harrypic.jpeg" width="20%" height="20%" class="img-responsive img-circle margin" style="display:inline"> -->
-
-      <?php if ($_SESSION['custimage'] == "" ) { 
+      
+     <?php if ($_SESSION['custimage'] == "" ) { 
         echo '<img src="img/noprofile.jpeg">';
       }
       else { ?>
       <img src="img/<?php echo $_SESSION['custimage'] ?>" >
-      <?php } ?>
+      <?php } ?> 
     
 
         <br><br>
@@ -122,37 +121,25 @@ img {
                  </div> 
                </div>
 
+<div class="data">
+                  <h2>Profile Picture</h2>
+                  <?php 
+ 
+    echo '<form action="uploadcust.php" method="post" enctype="multipart/form-data">';
+    echo "<input type='file' name='fileToUpload' id='fileToUpload' required>";
+    echo "<input type='submit' value='Upload Image' name='submit'> ";
+    echo "";
+    echo "</form>";
+  
+  ?></div>
         </div>
         <center>
       <button class="btn btn-block btn-primary" type="submit" name="editform" onclick="window.location.href='editcustProfile.php';"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Edit Profile</button></center>
     </div>
 </div>
 </section>
-<section></section><section></section><br><br><br><br><br><br>
-<section class="footer">
 
-   <div class="box-container">
 
-      <div class="box" style="text-align: center;">
-         <h3>contact info</h3>
-         <a href="#"> <i class="fas fa-phone"></i> 03-56212121 </a>
-         <a href="#"> <i class="fas fa-phone"></i> 019-1112221 </a>
-         <a href="#"> <i class="fas fa-envelope"></i> admin@servicezillion.com </a>
-         <a href="https://www.google.com/maps/place/Universiti+Kebangsaan+Malaysia/@3.0116948,101.5057449,11z/data=!4m19!1m13!4m12!1m4!2m2!1d101.5119872!2d3.0900224!4e1!1m6!1m2!1s0x31cdc9f6e881cbf7:0xb06402ffc0884bd7!2sukm+location!2m2!1d101.7800233!2d2.9289226!3m4!1s0x31cdc9f6e881cbf7:0xb06402ffc0884bd7!8m2!3d2.9289226!4d101.7800233" target="_blank"> <i class="fas fa-map"></i> Bandar Baru Bangi, Selangor </a>
-      </div>
-
-      <div class="box">
-         <h3>follow us</h3>
-         <a href="https://www.facebook.com/computing.ftsmukm" target="_blank"> <i class="fab fa-facebook-f"></i> facebook </a>
-         <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
-         <a href="https://www.instagram.com/fareenamf/?hl=en" target="_blank"> <i class="fab fa-instagram"></i> instagram </a>
-      </div>
-
-   </div>
-
-   <div class="credit"> created by <span>CyberFox Team</span> | 2022 </div>
-
-</section>
 
 <!-- footer section ends -->
 
