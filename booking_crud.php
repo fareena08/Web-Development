@@ -10,10 +10,10 @@ if (isset($_POST['create'])) {
  
   try {
      
-    $stmt = $connect->prepare("INSERT INTO tbl_booking(fld_booking_id, fld_cust_name, fld_sp_name, fld_service_name, fld_cust_address, fld_date, fld_time, fld_price, fld_booking_status) VALUES(:bid, :fld_cust_name, :fld_sp_name, :fld_service_name, :fld_cust_address, :fld_date, :fld_time, :fld_price, 'Pending' )");
+    $stmt = $connect->prepare("INSERT INTO tbl_booking(fld_booking_id, fld_user_id, fld_cust_name, fld_sp_name, fld_service_name, fld_cust_address, fld_date, fld_time, fld_price, postdate, fld_booking_status) VALUES(:bid, :fld_user_id, :fld_cust_name, :fld_sp_name, :fld_service_name, :fld_cust_address, :fld_date, :fld_time, :fld_price, :postdate, 'Pending' )");
 
     $stmt->bindParam(':bid', $bid, PDO::PARAM_STR);
-    //$stmt->bindParam(':fld_user_id', $fld_user_id, PDO::PARAM_STR);
+    $stmt->bindParam(':fld_user_id', $fld_user_id, PDO::PARAM_STR);
     $stmt->bindParam(':fld_cust_name', $fld_cust_name, PDO::PARAM_STR);
     $stmt->bindParam(':fld_sp_name', $fld_sp_name, PDO::PARAM_STR);
     $stmt->bindParam(':fld_service_name', $fld_service_name, PDO::PARAM_STR);
@@ -21,10 +21,12 @@ if (isset($_POST['create'])) {
     $stmt->bindParam(':fld_date', $fld_date, PDO::PARAM_STR);
     $stmt->bindParam(':fld_time', $fld_time, PDO::PARAM_STR);
     $stmt->bindParam(':fld_price', $fld_price, PDO::PARAM_STR);
+    $stmt->bindParam(':postdate', $postdate, PDO::PARAM_STR);
+
     //$stmt->bindParam(':fld_booking_status', $fld_booking_status, PDO::PARAM_STR);
 
     $bid = uniqid();
-    //$fld_user_id = $_POST['fld_user_id'];
+    $fld_user_id = $_POST['fld_user_id'];
     $fld_cust_name = $_POST['fld_cust_name'];
     $fld_sp_name = $_POST['fld_sp_name'];
     $fld_service_name = $_POST['fld_service_name'];
@@ -32,6 +34,7 @@ if (isset($_POST['create'])) {
     $fld_date = $_POST['fld_date'];
     $fld_time = $_POST['fld_time'];
     $fld_price = $_POST['fld_price'];
+    $postdate = $_POST['postdate'];
     $stmt->execute();
     //$id = $connect -> lastInsertId(); 
 
