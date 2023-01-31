@@ -43,6 +43,7 @@ if(empty($_SESSION)) {
       $_SESSION['Address'] = $readrow["fld_cust_addr"];
       $_SESSION['custusername'] = $readrow["fld_cust_username"];
       $_SESSION['custimage'] = $readrow["fld_cust_image"];
+      $_SESSION['postdate'] = $readrow["postdate"];
       
       
       echo "<script>alert('Welcome {$_SESSION['name']}! You have successfully logged in!');document.location='homeCust.php'</script>";
