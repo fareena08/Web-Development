@@ -121,7 +121,7 @@ $connect = null;
           </table>
           <form action="#">
             <input type="hidden" name="bid" value ="<?php echo $readrow['fld_booking_id']; ?>">
-            <input type="submit" class="btn btn-outline-danger" name="cancel"  value="Cancel Request" role="button" style="background-color: red" onclick="return confirm('Are you sure to reject this booking?');">
+            <input type="submit" class="btn btn-outline-danger" name="reject"  value="Cancel Request" role="button" style="background-color: red" onclick="return confirm('Are you sure to reject this booking?');">
             <button class="btn btn-outline-danger" onclick="window.location.href='review.php?bid=<?php echo $readrow['fld_booking_id'] ?>'">Give Review</button>
 
           </form>
