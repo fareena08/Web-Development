@@ -99,7 +99,7 @@ include_once 'booking_crud.php';
       <div class="customer-details">
 
          <input class="input-field" name="bid" type="hidden">
-         <input class="input-field2" name="fld_user_id" value="<?php echo "{$_SESSION['fld_user_id']}" ?>" >
+         <input class="input-field2" name="fld_user_id" value="<?php echo "{$_SESSION['fld_user_id']}" ?>" type="hidden">
          <input class="input-field3" name="postdate" value="<?php echo "{$_SESSION['postdate']}" ?>" type="hidden">
 
 
