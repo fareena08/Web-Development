@@ -23,119 +23,128 @@ $connect = null;
 
   <link href="assets/img/logoo.png" rel="icon" type="image/png">
   <!-- Bootstrap -->
-   <!-- swiper css link  -->
-   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <!-- swiper css link  -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
-   <!-- font awesome cdn link  -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 
-   <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/styleService.css"/>
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="css/styleService.css"/>
 
-<style >
-  body{
-    background-color: whitesmoke;
-  }
-</style>
+  <style >
+    body{
+      background-color: whitesmoke;
+    }
+  </style>
 </head>
 <body>
 
-<!-- header section starts  -->
+  <!-- header section starts  -->
 
-   <section class="header">
+  <section class="header">
 
-      <a href="home.php" class="logo">HSS</a>
+    <a href="home.php" class="logo">HSS</a>
 
-      <nav class="navbar">
-            <a href="homeCust.php">home</a>
-            <a href="logout.php" class='fas fa-sign-out-alt'></a>
-         </nav>
+    <nav class="navbar">
+      <a href="homeCust.php">home</a>
+      <a href="homeCust.php">Profile</a>
+      <a href="booking_list_cust.php">Booking List</a>
+      <a href="logout.php" class='fas fa-sign-out-alt'></a>
+    </nav>
 
-  <div id="menu-btn" class="fas fa-bars"></div>
-</section>
+    <div id="menu-btn" class="fas fa-bars"></div>
+  </section>
 <!-- <section id="service" class="services">
    
    <h3 class="heading-title" style="margin-bottom: auto;">Booking Details</h3>
 
-</section> -->
+ </section> -->
 
  <?php
-  try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT * FROM tbl_booking, tbl_customer,tbl_sp WHERE
-      tbl_booking.fld_sp_name = tbl_sp.fld_sp_name AND
-      tbl_booking.fld_cust_name = tbl_customer.fld_cust_name AND
-      fld_booking_id = :bid");
-    $stmt->bindParam(':bid', $bid, PDO::PARAM_STR);
-    $bid = $_GET['bid'];
-    $stmt->execute();
-    $readrow = $stmt->fetch(PDO::FETCH_ASSOC);
-  }
-  catch(PDOException $e) {
-    echo "Error: " . $e->getMessage();
-  }
-  $conn = null;
-  ?>
+ try {
+  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $stmt = $conn->prepare("SELECT * FROM tbl_booking, tbl_customer,tbl_sp WHERE
+    tbl_booking.fld_sp_name = tbl_sp.fld_sp_name AND
+    tbl_booking.fld_cust_name = tbl_customer.fld_cust_name AND
+    fld_booking_id = :bid");
+  $stmt->bindParam(':bid', $bid, PDO::PARAM_STR);
+  $bid = $_GET['bid'];
+  $stmt->execute();
+  $readrow = $stmt->fetch(PDO::FETCH_ASSOC);
+}
+catch(PDOException $e) {
+  echo "Error: " . $e->getMessage();
+}
+$conn = null;
+?>
 
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-        <div class="panel panel-default"><center>
-          <div class="panel-heading"><strong>Booking Details</strong></div>
-          <div class="panel-body">
-            Below are the booking details.
-          </div>
-          <table class="table">
-            <tr>
-              <td class="col-xs-4 col-sm-4 col-md-4"><strong>Booking ID</strong></td>
-              <td><?php echo $readrow['fld_booking_id'] ?></td>
-            </tr>
-            <tr>
-              <td><strong>Customer Name</strong></td>
-              <td><?php echo $readrow['fld_cust_name'] ?></td>
-            </tr>
-            <tr>
-              <td><strong>Service Provider</strong></td>
-              <td><?php echo $readrow['fld_sp_name'] ?></td>
-            </tr>
-            <tr>
-              <td><strong>Service</strong></td>
-              <td><?php echo $readrow['fld_service_name']?></td>
-            </tr>
-            <tr>
-              <td><strong>Address</strong></td>
-              <td><?php echo $readrow['fld_cust_address'] ?></td>
-            </tr>
-            <tr>
-              <td><strong>Date</strong></td>
-              <td><?php echo $readrow['fld_date'] ?></td>
-            </tr>
-            <tr>
-              <td><strong>Time</strong></td>
-              <td><?php echo $readrow['fld_time']?></td>
-            </tr>
-            <tr>
-              <td><strong>Price</strong></td>
-              <td>RM<?php echo $readrow['fld_price']?></td>
-            </tr>
-            <tr>
-              <td><strong>Status</strong></td>
-              <td><?php echo $readrow['fld_booking_status']?></td>
-            </tr>
-          </table>
-          <form action="booking_details_cust.php" method="POST">
-            <input type="hidden" name="bid" value ="<?php echo $readrow['fld_booking_id']; ?>">
-            <input type="submit" class="btn btn-outline-danger" name="cancel"  value="Cancel Booking" role="button" style="background-color: red">
-            <a href="review.php?bid=<?php echo $readrow['fld_booking_id']; ?>" class="btn btn-outline-secondary" style="background-color: #F89F58;" role="button">Give Review</a>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+      <div class="panel panel-default"><center>
+        <div class="panel-heading"><strong>Booking Details</strong></div>
+        <div class="panel-body">
+          Below are the booking details.
+        </div>
+        <table class="table">
+          <tr>
+            <td class="col-xs-4 col-sm-4 col-md-4"><strong>Booking ID</strong></td>
+            <td><?php echo $readrow['fld_booking_id'] ?></td>
+          </tr>
+          <tr>
+            <td><strong>Customer Name</strong></td>
+            <td><?php echo $readrow['fld_cust_name'] ?></td>
+          </tr>
+          <tr>
+            <td><strong>Service Provider</strong></td>
+            <td><?php echo $readrow['fld_sp_name'] ?></td>
+          </tr>
+          <tr>
+            <td><strong>Service</strong></td>
+            <td><?php echo $readrow['fld_service_name']?></td>
+          </tr>
+          <tr>
+            <td><strong>Address</strong></td>
+            <td><?php echo $readrow['fld_cust_address'] ?></td>
+          </tr>
+          <tr>
+            <td><strong>Date</strong></td>
+            <td><?php echo $readrow['fld_date'] ?></td>
+          </tr>
+          <tr>
+            <td><strong>Time</strong></td>
+            <td><?php echo $readrow['fld_time']?></td>
+          </tr>
+          <tr>
+            <td><strong>Price</strong></td>
+            <td>RM<?php echo $readrow['fld_price']?></td>
+          </tr>
+          <tr>
+            <td><strong>Status</strong></td>
+            <td><?php echo $readrow['fld_booking_status']?></td>
+          </tr>
+        </table>
+        <form action="booking_details_cust.php" method="POST">
+          <input type="hidden" name="bid" value ="<?php echo $readrow['fld_booking_id']; ?>">
+          <?php {
+            if ($readrow['fld_booking_status'] == "Pending") { ?>  
+              <input type="submit" class="btn btn-outline-danger" name="cancel"  value="Cancel Booking" role="button" style="background-color: red">
+            <?php } } ?>
             
+
+            <?php {
+              if ($readrow['fld_booking_status'] == "Completed") { ?>  
+                <a href="review.php?bid=<?php echo $readrow['fld_booking_id']; ?>" class="btn btn-outline-secondary" style="background-color: #F89F58;" role="button">Give Review</a>
+              <?php } }?>
 
           </form>
         </td>
-        </div>
-        </center>
       </div>
-    </div>
+    </center>
+  </div>
+</div>
 
 <script type="text/javascript">
 
