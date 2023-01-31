@@ -1,6 +1,9 @@
 <?php
 
 session_start();
+include_once 'database.php';
+$con = mysqli_connect($servername,$username,$password);
+include_once 'booking_details_cust_crud.php';
 include('database.php');
 
 
@@ -44,9 +47,7 @@ $connect = null;
       <a href="home.php" class="logo">HSS</a>
 
       <nav class="navbar">
-            <a href="homeSP.php">home</a>
-            <a href="sp_profile.php">Profile</a>
-            <a href="booking.php">Booking List</a>
+            <a href="homeCust.php">home</a>
             <a href="logout.php" class='fas fa-sign-out-alt'></a>
          </nav>
 
@@ -58,7 +59,7 @@ $connect = null;
 
 </section> -->
 
-  <?php
+ <?php
   try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -115,14 +116,19 @@ $connect = null;
               <td><?php echo $readrow['fld_time']?></td>
             </tr>
             <tr>
+              <td><strong>Price</strong></td>
+              <td>RM<?php echo $readrow['fld_price']?></td>
+            </tr>
+            <tr>
               <td><strong>Status</strong></td>
               <td><?php echo $readrow['fld_booking_status']?></td>
             </tr>
           </table>
-          <form action="#">
+          <form action="booking_details_cust.php" method="POST">
             <input type="hidden" name="bid" value ="<?php echo $readrow['fld_booking_id']; ?>">
-            <input type="submit" class="btn btn-outline-danger" name="reject"  value="Cancel Request" role="button" style="background-color: red" onclick="return confirm('Are you sure to reject this booking?');">
-            <button class="btn btn-outline-danger" onclick="window.location.href='review.php?bid=<?php echo $readrow['fld_booking_id'] ?>'">Give Review</button>
+            <input type="submit" class="btn btn-outline-danger" name="cancel"  value="Cancel Booking" role="button" style="background-color: red">
+            <a href="review.php?bid=<?php echo $readrow['fld_booking_id']; ?>" class="btn btn-outline-secondary" style="background-color: #F89F58;" role="button">Give Review</a>
+            
 
           </form>
         </td>
