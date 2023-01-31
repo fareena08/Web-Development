@@ -20,6 +20,7 @@ if (isset($_POST['updateprofile'])) {
     $name = $_POST['name'];
     $Phone = $_POST['Phone'];
     $Address = $_POST['Address'];
+
     
     $select= "SELECT * from tbl_customer WHERE fld_cust_email = '".$_SESSION['email']."'";
     $sql = mysqli_query($conn,$select);
@@ -38,8 +39,9 @@ if($res= $row['fld_cust_email']){
     $_SESSION['custusername'] = $_POST['name'];
     $_SESSION['Phone'] = $_POST['Phone'];
     $_SESSION['Address'] = $_POST['Address'];
-    header("Location:custProfile.php");
+    // $_SESSION['custimage'] = $_POST['custimage'];
 
+    header("Location:custProfile.php");
 }
 }
 ?>
