@@ -37,8 +37,7 @@ catch(PDOException $e)
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/profile.css">
-
+<link rel="stylesheet" href="css/styleHome.css">
    <!-- custom css profile link-->
   <link rel="stylesheet" href="css/profile.css">
 
@@ -122,7 +121,7 @@ img {
                   <h2>Profile Picture</h2>
                   <?php 
  
-    echo '<form action="uploadcust.php" method="post" enctype="multipart/form-data">';
+    echo '<form action="uploadSP.php" method="post" enctype="multipart/form-data">';
     echo "<input type='file' name='fileToUpload' id='fileToUpload' required>";
     echo "<input type='submit' value='Upload Image' name='submit'> ";
     echo "";
