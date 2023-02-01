@@ -117,6 +117,18 @@ img {
                     <p><?php echo "{$_SESSION['fld_sp_addr']}" ?></p>
                  </div>
             </div><br>
+
+            <div class="data">
+                  <h2>Profile Picture</h2>
+                  <?php 
+ 
+    echo '<form action="uploadcust.php" method="post" enctype="multipart/form-data">';
+    echo "<input type='file' name='fileToUpload' id='fileToUpload' required>";
+    echo "<input type='submit' value='Upload Image' name='submit'> ";
+    echo "";
+    echo "</form>";
+  
+  ?></div>
         
             
         <center>
