@@ -21,6 +21,8 @@ catch(PDOException $e)
     $conn = null;
 
 
+ 
+
 ?> 
 <!DOCTYPE html>
 <html lang="en">
@@ -99,7 +101,7 @@ img {
             <h1>SERVICE PROVIDER PROFILE</h1></center>
             <br>
 
-            <form action="updateSpProfile.php" method="post" >
+            <form action="editSpProfile.php" method="post" >
               
             <div class="info_data">
                  <div class="data">
@@ -119,10 +121,18 @@ img {
                     <input type="text" name="fld_sp_addr" size="100" required value="<?php echo "{$_SESSION['fld_sp_addr']}" ?>">
 
     <h2>Profile Picture</h2>
+    <form action="" method="POST" enctype="multipart/form-data">
                   <input type='file' name='fileToUpload' id='fileToUpload' >
                   <br>
     <br><input type='submit' name="fld_image" value='Upload Image' name='submit'></div></div>
+
+    
              <center>
+             </center>
+         </form>
+         <br>
+
+         
                  
            
                   
