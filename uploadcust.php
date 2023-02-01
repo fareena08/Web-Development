@@ -64,7 +64,7 @@ try {
 
     // header("Location:custProfile.php");
    
-     echo "<script>alert('You image has successfully been uploaded!');document.location='custProfile.php'</script>";
+     echo "<script>alert('You image has successfully been uploaded!');document.location='homeCust.php'</script>";
     }
  
       catch(PDOException $e)
