@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
  
   // Check if image file is a actual image or fake image
-  if(isset($_POST["fld_image"])) {
+  if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
     if($check !== false) {
       $uploadOk = 1;
@@ -39,14 +39,14 @@ try {
 
     $stmt->bindParam(':fileToUpload', $img, PDO::PARAM_STR);
        
-       $img = ($_FILES["fileToUpload"]["fld_sp_name"]);
+       $img = ($_FILES["fileToUpload"]["name"]);
  
     $stmt->execute();
      
 
     // header("Location:custProfile.php");
    
-     //echo "<script>alert('You image has successfully been uploaded!');document.location='editSpProfile.php'</script>";
+     echo "<script>alert('You image has successfully been uploaded!');document.location='homeSP.php'</script>";
     }
  
       catch(PDOException $e)
