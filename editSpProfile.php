@@ -101,7 +101,7 @@ img {
             <h1>SERVICE PROVIDER PROFILE</h1></center>
             <br>
 
-            <form action="editSpProfile.php" method="post" >
+            <form action="updateSpProfile.php" method="post" >
               
             <div class="info_data">
                  <div class="data">
