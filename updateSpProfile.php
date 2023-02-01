@@ -22,6 +22,8 @@ if (isset($_POST['updateprofile'])) {
     $fld_sp_addr = $_POST['fld_sp_addr'];
     $fld_sp_ssm = $_POST['fld_sp_ssm'];
     $fld_price = $_POST['fld_price'];
+    $fld_image = $_POST['fld_image'];
+
     
     $select= "SELECT * from tbl_sp WHERE fld_sp_email = '".$_SESSION['fld_sp_email']."'";
     $sql = mysqli_query($conn,$select);
@@ -31,13 +33,26 @@ if (isset($_POST['updateprofile'])) {
     if($res === $fld_sp_email)
     {
    
-       $update = "UPDATE tbl_sp SET fld_sp_name='$fld_sp_name',fld_sp_phone='$fld_sp_phone',fld_sp_addr='$fld_sp_addr', fld_service_name='$fld_service_name', fld_sp_ssm='$fld_sp_ssm', fld_price='$fld_price' WHERE fld_sp_email='$fld_sp_email'";
+       $update = "UPDATE tbl_sp SET fld_sp_name='$fld_sp_name',fld_sp_phone='$fld_sp_phone',fld_sp_addr='$fld_sp_addr', fld_service_name='$fld_service_name', fld_sp_ssm='$fld_sp_ssm', fld_price='$fld_price', fld_image ='$fld_image'  WHERE fld_sp_email='$fld_sp_email'";
      $sql2=mysqli_query($conn,$update);
 
-     header("Location: sp_profile.php");
+     
 
  }
 
+if($res= $row['fld_sp_email']){
+    $_SESSION['fld_sp_name'] = $_POST['fld_sp_name'];
+    $_SESSION['fld_service_name'] = $_POST['fld_service_name'];
+    $_SESSION['fld_sp_phone'] = $_POST['fld_sp_phone'];
+    $_SESSION['fld_sp_addr'] = $_POST['fld_sp_addr'];
+    $_SESSION['fld_sp_ssm'] = $_POST['fld_sp_ssm'];
+    $_SESSION['fld_price'] = $_POST['fld_price'];
+    $_SESSION['fld_image'] = $_POST['fld_image'];
+
+
+ header("Location: sp_profile.php");
+
+}
 }
 
 ?>
